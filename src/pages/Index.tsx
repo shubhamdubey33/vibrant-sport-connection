@@ -9,7 +9,7 @@ import CategorySection from "@/components/CategorySection";
 import Schedule from "@/components/Schedule";
 import Footer from "@/components/Footer";
 import { participants, teams } from "@/data/mockData";
-import { Participant } from "@/types";
+import { Participant, Team } from "@/types";
 import { CricketBackground, TugOfWarBackground, VolunteerBackground, GeneralBackground } from "@/components/CategoryBackgrounds";
 
 // Sample team leaders data - in a real app this would come from your API
@@ -18,42 +18,42 @@ const teamLeaders = [
     id: "leader-1",
     name: "Alex Johnson",
     title: "Construction Director",
-    team: "Brick Blazers",
+    team: "Brick Blazers" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Alex&mouth=smile&eyes=happy"
   },
   {
     id: "leader-2",
     name: "Morgan Smith",
     title: "Engineering Lead",
-    team: "Concrete Titans",
+    team: "Concrete Titans" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Morgan&mouth=smile&eyes=surprised"
   },
   {
     id: "leader-3",
     name: "Taylor Ross",
     title: "Operations Manager",
-    team: "Steel Strikers",
+    team: "Steel Strikers" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Taylor&mouth=smile&eyes=wink"
   },
   {
     id: "leader-4",
     name: "Jordan Lee",
     title: "Design Director",
-    team: "Design Dynamos",
+    team: "Design Dynamos" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Jordan&mouth=smile&eyes=hearts"
   },
   {
     id: "leader-5",
     name: "Casey Wright",
     title: "Event Coordinator",
-    team: "Brick Blazers",
+    team: "Brick Blazers" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Casey&mouth=smile&eyes=default"
   },
   {
     id: "leader-6",
     name: "Riley Parker",
     title: "Sports Manager",
-    team: "Concrete Titans",
+    team: "Concrete Titans" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Riley&mouth=smile&eyes=eyeRoll"
   }
 ];
