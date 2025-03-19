@@ -20,10 +20,9 @@ export interface TeamData {
   logo: string; 
   backgroundColor: string;
   textColor: string;
-  flag?: string;
-  flagColor?: string;
-  flagBackground?: string;
-  flagSymbol?: string;
+  flagColor: string;
+  flagBackground: string;
+  flagSymbol: string;
   participants: {
     cricket: number;
     tugOfWar: number;
@@ -36,6 +35,6 @@ export interface TeamLeader {
   id: string;
   name: string;
   title: string;
-  team: Team; // Fixed type from string to Team
+  team: Team;
   avatar: string;
 }

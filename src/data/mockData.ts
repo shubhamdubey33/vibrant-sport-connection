@@ -8,7 +8,7 @@ export const teams: TeamData[] = [
     logo: '🧱',
     backgroundColor: 'bg-team-brick/10',
     textColor: 'text-team-brick',
-    flagColor: 'orange-500',
+    flagColor: 'text-orange-500',
     flagBackground: 'bg-gradient-to-r from-orange-400 to-orange-600',
     flagSymbol: 'brick-pattern',
     participants: {
@@ -24,7 +24,7 @@ export const teams: TeamData[] = [
     logo: '🏢',
     backgroundColor: 'bg-team-concrete/10',
     textColor: 'text-team-concrete',
-    flagColor: 'gray-500',
+    flagColor: 'text-gray-500',
     flagBackground: 'bg-gradient-to-r from-gray-400 to-gray-600',
     flagSymbol: 'concrete-texture',
     participants: {
@@ -40,7 +40,7 @@ export const teams: TeamData[] = [
     logo: '⚙️',
     backgroundColor: 'bg-team-steel/10',
     textColor: 'text-team-steel',
-    flagColor: 'blue-900',
+    flagColor: 'text-blue-900',
     flagBackground: 'bg-gradient-to-r from-blue-900 to-slate-800',
     flagSymbol: 'steel-beams',
     participants: {
@@ -56,7 +56,7 @@ export const teams: TeamData[] = [
     logo: '🎨',
     backgroundColor: 'bg-team-design/10',
     textColor: 'text-team-design',
-    flagColor: 'teal-500',
+    flagColor: 'text-teal-500',
     flagBackground: 'bg-gradient-to-r from-teal-400 to-teal-600',
     flagSymbol: 'design-lines',
     participants: {

@@ -9,51 +9,6 @@ interface TeamCardProps {
 }
 
 const TeamCard = ({ team, index }: TeamCardProps) => {
-  const getGradient = () => {
-    switch(team.name) {
-      case 'Brick Blazers':
-        return 'from-red-500 to-orange-500';
-      case 'Concrete Titans':
-        return 'from-gray-500 to-gray-600';
-      case 'Steel Strikers':
-        return 'from-slate-700 to-slate-900';
-      case 'Design Dynamos':
-        return 'from-purple-500 to-purple-700';
-      default:
-        return 'from-blue-500 to-blue-600';
-    }
-  };
-
-  const getFlagColor = () => {
-    switch(team.name) {
-      case 'Brick Blazers':
-        return 'text-orange-500';
-      case 'Concrete Titans':
-        return 'text-gray-500';
-      case 'Steel Strikers':
-        return 'text-slate-700';
-      case 'Design Dynamos':
-        return 'text-purple-500';
-      default:
-        return 'text-blue-500';
-    }
-  };
-
-  const getFlagBackground = () => {
-    switch(team.name) {
-      case 'Brick Blazers':
-        return 'bg-gradient-to-r from-orange-400 to-orange-600';
-      case 'Concrete Titans':
-        return 'bg-gradient-to-r from-gray-400 to-gray-600';
-      case 'Steel Strikers':
-        return 'bg-gradient-to-r from-blue-900 to-slate-800';
-      case 'Design Dynamos':
-        return 'bg-gradient-to-r from-teal-400 to-teal-600';
-      default:
-        return 'bg-gradient-to-r from-blue-500 to-blue-600';
-    }
-  };
-
   return (
     <motion.div 
       className="group"
@@ -64,7 +19,7 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
       <div className="team-card">
         <div className="card-highlight from-white/10 via-white/30 to-white/10"></div>
         
-        {/* Enhanced Team Flag */}
+        {/* Enhanced Team Flag - Positioned at the TOP of the card */}
         <motion.div 
           className="absolute -top-16 right-4 z-20"
           initial={{ rotateZ: 0 }}
@@ -72,9 +27,9 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         >
           <div className="relative">
-            <Flag className={`w-10 h-10 ${getFlagColor()} filter drop-shadow-lg`} />
+            <Flag className={`w-10 h-10 ${team.flagColor} filter drop-shadow-lg`} />
             <motion.div 
-              className={`absolute top-10 left-1/2 -translate-x-1/2 w-16 h-24 origin-top ${getFlagBackground()} rounded-sm shadow-lg`}
+              className={`absolute top-10 left-1/2 -translate-x-1/2 w-16 h-24 origin-top ${team.flagBackground} rounded-sm shadow-lg`}
               initial={{ scaleY: 0.9, rotate: 0 }}
               animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -141,7 +96,7 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
         
         <div className="relative z-10 h-full glass-card rounded-2xl overflow-hidden border border-white/20">
           {/* Top gradient band */}
-          <div className={`h-24 bg-gradient-to-r ${getGradient()} relative overflow-hidden`}>
+          <div className={`h-24 bg-gradient-to-r ${team.color} relative overflow-hidden`}>
             <div className="team-card-shimmer"></div>
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-4xl">{team.logo}</span>
