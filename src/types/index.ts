@@ -11,6 +11,7 @@ export interface Participant {
   role?: string;
   avatar?: string;
   stats?: Record<string, any>;
+  isLeader?: boolean;
 }
 
 export interface TeamData {
@@ -19,10 +20,19 @@ export interface TeamData {
   logo: string; 
   backgroundColor: string;
   textColor: string;
+  flag?: string;
   participants: {
     cricket: number;
     tugOfWar: number;
     volunteers: number;
     general: number;
   };
+}
+
+export interface TeamLeader {
+  id: string;
+  name: string;
+  title: string;
+  team: Team;
+  avatar: string;
 }

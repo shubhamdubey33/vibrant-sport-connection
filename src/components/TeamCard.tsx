@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { TeamData } from "@/types";
-import { Trophy, Users, Anchor, HeartHandshake } from "lucide-react";
+import { Trophy, Users, Anchor, HeartHandshake, Flag } from "lucide-react";
 
 interface TeamCardProps {
   team: TeamData;
@@ -24,6 +24,21 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
     }
   };
 
+  const getFlagColor = () => {
+    switch(team.name) {
+      case 'Brick Blazers':
+        return 'text-orange-500';
+      case 'Concrete Titans':
+        return 'text-gray-500';
+      case 'Steel Strikers':
+        return 'text-slate-700';
+      case 'Design Dynamos':
+        return 'text-purple-500';
+      default:
+        return 'text-blue-500';
+    }
+  };
+
   return (
     <motion.div 
       className="group"
@@ -33,6 +48,81 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
     >
       <div className="team-card">
         <div className="card-highlight from-white/10 via-white/30 to-white/10"></div>
+        
+        {/* Team Flag */}
+        <motion.div 
+          className="absolute -top-12 right-4 z-20"
+          initial={{ rotateZ: 0 }}
+          animate={{ rotateZ: [0, 5, 0, -5, 0] }}
+          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="relative">
+            <Flag className={`w-8 h-8 ${getFlagColor()}`} />
+            <motion.div 
+              className={`absolute top-8 left-1/2 -translate-x-1/2 w-12 h-20 origin-top bg-gradient-to-b ${getGradient()} rounded-sm`}
+              initial={{ scaleY: 0.9, rotate: 0 }}
+              animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-full h-full overflow-hidden relative">
+                {team.name === 'Brick Blazers' && (
+                  <div className="absolute inset-0 flex flex-wrap">
+                    {[...Array(15)].map((_, i) => (
+                      <div key={i} className="w-1/3 h-1/5 border border-orange-600/30"></div>
+                    ))}
+                  </div>
+                )}
+                {team.name === 'Concrete Titans' && (
+                  <div className="absolute inset-0">
+                    {[...Array(5)].map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="absolute bg-gray-400/40" 
+                        style={{ 
+                          width: `${Math.random() * 50 + 10}%`, 
+                          height: `${Math.random() * 10 + 2}px`,
+                          top: `${i * 20 + Math.random() * 10}%`,
+                          left: `${Math.random() * 40}%`,
+                          transform: `rotate(${Math.random() * 10 - 5}deg)`
+                        }}
+                      ></div>
+                    ))}
+                  </div>
+                )}
+                {team.name === 'Steel Strikers' && (
+                  <div className="absolute inset-0">
+                    <div className="absolute top-1/2 left-0 right-0 h-3 bg-blue-800/20 -rotate-45 transform -translate-y-1/2"></div>
+                    <div className="absolute top-1/2 left-0 right-0 h-3 bg-blue-800/20 rotate-45 transform -translate-y-1/2"></div>
+                  </div>
+                )}
+                {team.name === 'Design Dynamos' && (
+                  <div className="absolute inset-0 overflow-hidden">
+                    {[...Array(6)].map((_, i) => (
+                      <motion.div 
+                        key={i}
+                        className="absolute h-1 rounded-full"
+                        style={{ 
+                          width: `${Math.random() * 80 + 20}%`,
+                          background: `hsl(${Math.random() * 360}, 80%, 60%)`,
+                          top: `${i * 16 + Math.random() * 5}%`,
+                          left: `${Math.random() * 20}%`,
+                          opacity: 0.7
+                        }}
+                        animate={{ 
+                          left: [`${Math.random() * 20}%`, `${Math.random() * 10}%`],
+                          width: [`${Math.random() * 80 + 20}%`, `${Math.random() * 70 + 30}%`]
+                        }}
+                        transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", delay: i * 0.2 }}
+                      ></motion.div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </motion.div>
+            <div className="absolute top-8 left-1/2 -translate-x-1/2 w-1 h-32 bg-gray-400"></div>
+          </div>
+        </motion.div>
+        
         <div className="relative z-10 h-full glass-card rounded-2xl overflow-hidden border border-white/20">
           {/* Top gradient band */}
           <div className={`h-24 bg-gradient-to-r ${getGradient()} relative overflow-hidden`}>
