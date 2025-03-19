@@ -36,7 +36,7 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Steel Strikers',
-    color: 'from-slate-700 to-slate-900',
+    color: 'from-blue-900 to-slate-800',  // Updated to match the flag colors
     logo: '⚙️',
     backgroundColor: 'bg-team-steel/10',
     textColor: 'text-team-steel',
@@ -52,7 +52,7 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Design Dynamos',
-    color: 'from-purple-500 to-purple-700',
+    color: 'from-teal-400 to-teal-600',  // Updated to match the turquoise flag colors
     logo: '🎨',
     backgroundColor: 'bg-team-design/10',
     textColor: 'text-team-design',
