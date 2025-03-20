@@ -44,9 +44,10 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-sm uppercase tracking-wider text-gray-500 mb-4">Contact</h4>
             <ul className="space-y-2">
-              <li className="text-sm text-gray-600">events@techinterio.com</li>
-              <li className="text-sm text-gray-600">+1 (555) 123-4567</li>
-              <li className="text-sm text-gray-600">123 Tech Street, Silicon Valley, CA 94043</li>
+              <li className="text-sm text-gray-600">+91 9667070312</li>
+              <li className="text-sm text-gray-600">Ground Floor B-4/5a</li>
+              <li className="text-sm text-gray-600">Sector 63 Noida</li>
+              <li className="text-sm text-gray-600">201301</li>
             </ul>
           </div>
         </div>
