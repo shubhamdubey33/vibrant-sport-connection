@@ -1,7 +1,7 @@
 
 import { motion } from "framer-motion";
 import { TeamData } from "@/types";
-import { Trophy, Users, Anchor, HeartHandshake, Flag, X } from "lucide-react";
+import { Users, Anchor, HeartHandshake, Trophy } from "lucide-react";
 
 interface TeamCardProps {
   team: TeamData;
@@ -16,17 +16,15 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
     >
-      {/* Enhanced Team Flag - Positioned at the TOP and OUTSIDE of the card */}
+      {/* Enhanced Team Flag - Positioned at the LEFT and OUTSIDE of the card */}
       <motion.div 
-        className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute -top-12 -left-16 z-20"
         initial={{ rotateZ: 0 }}
-        animate={{ rotateZ: [0, 5, 0, -5, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       >
         <div className="relative">
-          <Flag className={`w-10 h-10 ${team.flagColor} filter drop-shadow-lg`} />
+          {/* Flag fabric part - only this should animate */}
           <motion.div 
-            className={`absolute top-10 left-1/2 -translate-x-1/2 w-16 h-24 origin-top ${team.flagBackground} rounded-sm shadow-lg`}
+            className={`absolute top-0 left-5 w-16 h-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
             initial={{ scaleY: 0.9, rotate: 0 }}
             animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -58,7 +56,6 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
               )}
               {team.name === 'Steel Strikers' && (
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <X className="w-12 h-12 text-gray-200/80 stroke-[1.5]" />
                   <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200/30 transform -translate-y-1/2"></div>
                   <div className="absolute top-0 bottom-0 left-1/2 w-2 bg-gray-200/30 transform -translate-x-1/2"></div>
                 </div>
@@ -87,7 +84,8 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
               )}
             </div>
           </motion.div>
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 w-1.5 h-36 bg-gray-400 shadow-md rounded-sm"></div>
+          {/* Flag pole - this should remain static */}
+          <div className="absolute top-0 left-0 w-1.5 h-36 bg-gray-400 shadow-md rounded-sm"></div>
         </div>
       </motion.div>
       
