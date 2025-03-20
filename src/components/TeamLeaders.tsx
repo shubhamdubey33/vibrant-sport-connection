@@ -57,9 +57,7 @@ const TeamLeaders = ({ leaders }: TeamLeadersProps) => {
               </div>
               <h3 className="font-medium text-lg">{leader.name}</h3>
               <p className="text-sm text-gray-500">{leader.title}</p>
-              <div className="mt-1 text-xs px-3 py-1 rounded-full bg-primary/10 text-primary">
-                {leader.team}
-              </div>
+              {/* Team name removed as requested */}
             </motion.div>
           ))}
         </div>

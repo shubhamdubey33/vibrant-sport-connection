@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -195,6 +194,7 @@ const Index = () => {
         category="Cricket"
         participants={getCategoryParticipants("Cricket")}
         backgroundElement={<CricketBackground />}
+        defaultTeam="Brick Blazers"
       />
       
       {/* Tug of War Section */}

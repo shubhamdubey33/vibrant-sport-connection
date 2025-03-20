@@ -13,6 +13,7 @@ interface CategorySectionProps {
   id: string;
   className?: string;
   backgroundElement?: React.ReactNode;
+  defaultTeam?: string;
 }
 
 const CategorySection = ({
@@ -22,13 +23,14 @@ const CategorySection = ({
   participants,
   id,
   className,
-  backgroundElement
+  backgroundElement,
+  defaultTeam
 }: CategorySectionProps) => {
   // Get unique teams
   const teams = [...new Set(participants.map(p => p.team))];
 
-  // Set default team to first team if teams exist
-  const defaultTeam = teams.length > 0 ? teams[0] : 'all';
+  // Set default team based on prop or first team if teams exist
+  const actualDefaultTeam = defaultTeam || (teams.length > 0 ? teams[0] : 'all');
 
   // Animation for different categories
   const getCategoryAnimation = () => {
@@ -165,7 +167,7 @@ const CategorySection = ({
           <p className="text-lg text-gray-600 mb-10 max-w-2xl">{description}</p>
         </motion.div>
 
-        <Tabs defaultValue={defaultTeam} className="w-full">
+        <Tabs defaultValue={actualDefaultTeam} className="w-full">
           <TabsList className="mb-8 bg-white/50 backdrop-blur-sm">
             <TabsTrigger value="all">All Teams</TabsTrigger>
             {teams.map((team) => (

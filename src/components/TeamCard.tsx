@@ -16,9 +16,9 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
     >
-      {/* Enhanced Team Flag - Positioned at the LEFT and OUTSIDE of the card */}
+      {/* Enhanced Team Flag - Positioned at the CENTER and OUTSIDE of the card */}
       <motion.div 
-        className="absolute -top-12 -left-6 z-20"
+        className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ rotateZ: 0 }}
       >
         <div className="relative">
