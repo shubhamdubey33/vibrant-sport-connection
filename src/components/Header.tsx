@@ -36,12 +36,12 @@ const Header = ({ onSearch }: HeaderProps) => {
         <div className="flex items-center space-x-2">
           <div 
             className={cn(
-              "w-10 h-10 grid place-items-center rounded-lg font-bold text-primary-foreground bg-gradient-to-br from-primary to-primary/80",
+              "w-10 h-10 grid place-items-center rounded-lg font-bold text-white bg-[#ea384c]",
               "transition-all duration-300",
               scrolled ? "scale-90" : "scale-100"
             )}
           >
-            T
+            Ti
           </div>
           <div className={cn(
             "font-medium transition-all duration-300",
