@@ -27,6 +27,9 @@ const CategorySection = ({
   // Get unique teams
   const teams = [...new Set(participants.map(p => p.team))];
 
+  // Set default team to first team if teams exist
+  const defaultTeam = teams.length > 0 ? teams[0] : 'all';
+
   // Animation for different categories
   const getCategoryAnimation = () => {
     switch(category) {
@@ -162,7 +165,7 @@ const CategorySection = ({
           <p className="text-lg text-gray-600 mb-10 max-w-2xl">{description}</p>
         </motion.div>
 
-        <Tabs defaultValue="all" className="w-full">
+        <Tabs defaultValue={defaultTeam} className="w-full">
           <TabsList className="mb-8 bg-white/50 backdrop-blur-sm">
             <TabsTrigger value="all">All Teams</TabsTrigger>
             {teams.map((team) => (

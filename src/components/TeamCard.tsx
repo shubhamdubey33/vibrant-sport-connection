@@ -18,13 +18,16 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
     >
       {/* Enhanced Team Flag - Positioned at the LEFT and OUTSIDE of the card */}
       <motion.div 
-        className="absolute -top-12 -left-16 z-20"
+        className="absolute -top-12 -left-6 z-20"
         initial={{ rotateZ: 0 }}
       >
         <div className="relative">
-          {/* Flag fabric part - only this should animate */}
+          {/* Flag pole - this should remain static */}
+          <div className="absolute top-0 left-0 w-1.5 h-36 bg-gray-400 shadow-md rounded-sm"></div>
+          
+          {/* Flag fabric part - only this should animate (positioned directly next to pole) */}
           <motion.div 
-            className={`absolute top-0 left-5 w-16 h-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
+            className={`absolute top-0 left-1.5 w-16 h-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
             initial={{ scaleY: 0.9, rotate: 0 }}
             animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -84,8 +87,6 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
               )}
             </div>
           </motion.div>
-          {/* Flag pole - this should remain static */}
-          <div className="absolute top-0 left-0 w-1.5 h-36 bg-gray-400 shadow-md rounded-sm"></div>
         </div>
       </motion.div>
       

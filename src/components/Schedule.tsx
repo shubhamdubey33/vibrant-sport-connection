@@ -4,7 +4,7 @@ import { Calendar, Clock } from "lucide-react";
 
 const scheduleData = [
   {
-    day: "Day 1 - July 15",
+    day: "April 26, 2025",
     events: [
       { time: "09:00 AM", title: "Opening Ceremony", location: "Main Field" },
       { time: "10:00 AM", title: "Cricket Match: Brick Blazers vs Steel Strikers", location: "Cricket Field A" },
@@ -12,18 +12,9 @@ const scheduleData = [
       { time: "12:30 PM", title: "Lunch Break", location: "Food Court" },
       { time: "01:30 PM", title: "Tug of War Preliminary Rounds", location: "Event Area" },
       { time: "03:30 PM", title: "Cricket Finals", location: "Cricket Field A" },
-      { time: "05:00 PM", title: "Day 1 Awards", location: "Main Stage" }
-    ]
-  },
-  {
-    day: "Day 2 - July 16",
-    events: [
-      { time: "09:30 AM", title: "Team Building Activities", location: "Main Field" },
-      { time: "11:00 AM", title: "Tug of War Finals", location: "Event Area" },
-      { time: "12:30 PM", title: "Lunch Break", location: "Food Court" },
-      { time: "01:30 PM", title: "Special Events & Games", location: "Various Locations" },
-      { time: "03:30 PM", title: "Closing Ceremony", location: "Main Stage" },
-      { time: "04:30 PM", title: "Final Awards & Trophy Presentation", location: "Main Stage" }
+      { time: "04:30 PM", title: "Tug of War Finals", location: "Event Area" },
+      { time: "05:30 PM", title: "Special Events & Games", location: "Various Locations" },
+      { time: "06:30 PM", title: "Closing Ceremony & Award Presentation", location: "Main Stage" }
     ]
   }
 ];
@@ -41,11 +32,11 @@ const Schedule = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Event Schedule</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Mark your calendar for two days of exciting competitions, team spirit, and fun activities.
+            Mark your calendar for an exciting day of competitions, team spirit, and fun activities.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 max-w-3xl mx-auto">
           {scheduleData.map((day, dayIndex) => (
             <motion.div
               key={day.day}

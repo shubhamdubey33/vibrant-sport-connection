@@ -73,7 +73,7 @@ const Hero = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="inline-block px-4 py-1.5 mb-6 rounded-full text-xs font-medium tracking-wide bg-primary/10 text-primary backdrop-blur-sm">
-            Coming Soon • July 15-16, 2023
+            Coming Soon • April 26, 2025
           </div>
         </motion.div>
         
@@ -85,7 +85,7 @@ const Hero = () => {
         >
           Techinterio <br />
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-400">
-            Sports Day 2023
+            Sports Day 2025
           </span>
         </motion.h1>
         
