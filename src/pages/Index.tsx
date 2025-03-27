@@ -15,37 +15,37 @@ import { CricketBackground, TugOfWarBackground, VolunteerBackground, GeneralBack
 const teamLeaders = [
   {
     id: "leader-1",
-    name: "Alex Johnson",
-    title: "Construction Director",
-    team: "Brick Blazers" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Alex&mouth=smile&eyes=happy"
+    name: "Sagar Kumar",
+    title: "Commentator",
+    team: "Royal Strikers" as Team,
+    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Jordan&mouth=smile&eyes=hearts"
   },
   {
     id: "leader-2",
-    name: "Morgan Smith",
-    title: "Engineering Lead",
-    team: "Concrete Titans" as Team,
+    name: "Anil Sharma",
+    title: "Team  Head",
+    team: "Dark Knights" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Morgan&mouth=smile&eyes=surprised"
   },
   {
     id: "leader-3",
-    name: "Taylor Ross",
-    title: "Operations Manager",
-    team: "Steel Strikers" as Team,
+    name: "Nisha Rawat",
+    title: "Team Head",
+    team: "Royal Strikers" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Taylor&mouth=smile&eyes=wink"
   },
   {
     id: "leader-4",
-    name: "Jordan Lee",
-    title: "Design Director",
-    team: "Design Dynamos" as Team,
+    name: "Namrata Tiwari",
+    title: "Team Head",
+    team: "Eagle Warriors" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Jordan&mouth=smile&eyes=hearts"
   },
   {
     id: "leader-5",
-    name: "Casey Wright",
-    title: "Event Coordinator",
-    team: "Brick Blazers" as Team,
+    name: "Shubham Dubey",
+    title: "Team Head",
+    team: "Supreme Spartans" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Casey&mouth=smile&eyes=default"
   },
   {
