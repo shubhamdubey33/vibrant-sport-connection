@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { TeamLeader } from "@/types";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 interface TeamLeadersProps {
   leaders: TeamLeader[];
@@ -37,27 +38,40 @@ const TeamLeaders = ({ leaders }: TeamLeadersProps) => {
               whileHover={{ y: -10, transition: { duration: 0.3 } }}
               className="flex flex-col items-center"
             >
-              <div className="relative mb-4">
-                <motion.div
-                  className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/60 to-blue-400/60 blur-md"
-                  animate={{ 
-                    rotate: [0, 360],
-                    scale: [1, 1.05, 1]
-                  }}
-                  transition={{ 
-                    duration: 8, 
-                    repeat: Infinity,
-                    repeatType: "reverse" 
-                  }}
-                />
-                <Avatar className="h-24 w-24 border-2 border-white shadow-md relative">
-                  <AvatarImage src={leader.avatar} alt={leader.name} />
-                  <AvatarFallback>{leader.name.substring(0, 2)}</AvatarFallback>
-                </Avatar>
-              </div>
+              <HoverCard>
+                <HoverCardTrigger asChild>
+                  <div className="relative mb-4 cursor-pointer">
+                    <motion.div
+                      className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/60 to-blue-400/60 blur-md"
+                      animate={{ 
+                        rotate: [0, 360],
+                        scale: [1, 1.05, 1]
+                      }}
+                      transition={{ 
+                        duration: 8, 
+                        repeat: Infinity,
+                        repeatType: "reverse" 
+                      }}
+                    />
+                    <Avatar className="h-24 w-24 border-2 border-white shadow-md relative transition-transform duration-300 hover:scale-110">
+                      <AvatarImage src={leader.avatar} alt={leader.name} />
+                      <AvatarFallback>{leader.name.substring(0, 2)}</AvatarFallback>
+                    </Avatar>
+                  </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-auto p-4">
+                  <div className="flex flex-col items-center">
+                    <h4 className="font-bold text-lg mb-1">{leader.name}</h4>
+                    <p className="text-sm text-gray-500 mb-2">{leader.title}</p>
+                    <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">
+                      {leader.team}
+                    </span>
+                  </div>
+                </HoverCardContent>
+              </HoverCard>
               <h3 className="font-medium text-lg">{leader.name}</h3>
               <p className="text-sm text-gray-500">{leader.title}</p>
-              {/* Team name removed as requested */}
+              <span className="text-xs text-primary/70 mt-1">{leader.team}</span>
             </motion.div>
           ))}
         </div>

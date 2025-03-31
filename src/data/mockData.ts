@@ -1,9 +1,8 @@
-
 import { Participant, TeamData } from '../types';
 
 export const teams: TeamData[] = [
   {
-    name: 'Dark Knights',
+    name: 'Knight Vipers',
     color: 'from-red-500 to-orange-500',
     logo: '🧱',
     backgroundColor: 'bg-team-brick/10',
@@ -67,6 +66,7 @@ export const teams: TeamData[] = [
     }
   }
 ];
+
 const cricketNamesDarkKnights = ['Gaurav Bhandhari (C)', 'Shubham Rawat (VC)', 'Rakshit', 'Ravi Kumar', 'Md. Ragib', 'Sachin Negi', 'Raman Kumar', 'Mustaqeem', 'Shoeb Akhtar', 'Gaurav Joshi', 'Zaheer','Tarun Sharma','Ramkishan','Sanjay','Bittu Kumar'];
 const cricketNamesEagleWarriors = [
   'Amir Khan',
@@ -135,8 +135,6 @@ const generalNamesEagleWarriors = ['Jacky', 'Prince Nishad', 'Ankit Yadav', 'Dee
 const generalNamesRoyalStrikers = ['Neenanjali', 'Wairokpam Ogaka', 'Jagdeep', 'Sameer Sharma', 'Sagar Kumar', 'Ankit Goyat', 'Ravi Sharma', 'Gajendra Singh', 'Nisha', 'Arjun Kumar', 'Dilnawaz Ahmad', 'Abhishek Gaur', 'Kuldeep Kumar Varun', 'Satyapal Singh', 'Rajdeepak Gupta', 'Suraj Prajapati', 'Atul Rawat', 'Abdul Karim Ansari', 'Tushar Kant', 'Aman Srivastava', 'Manish Kumar', 'Tushar Tyagi', 'Rajnish Pal', 'Ajay Pandey', 'Yogesh Rawat', 'Ravi Kumar Jaiswal', 'Tanuj Sharma', 'Pramod Dhoundiyal', 'Praveen', 'Yogesh', 'Sharique', 'Sam Siddiqui', 'Nisha', 'Preeti Rautela', 'Mansi Bhainsora', 'Neeraj Saraswat', 'Mukeet Khan', 'Devesh Al', 'Hammad Hassan', 'Surya', 'Shubham Verma', 'Vinod Kumar', 'Sachin Singh Rathore (S.S. Rathore)', 'Aastha Mishra', 'Nitilesh Kumar', 'Akash Kumar', 'Hitesh Kumar', 'Sunil Rajbhor', 'Sonali', 'Imtiyaj', 'Aman Kumar', 'Akash', 'Ajab Singh', 'Suman', 'Himanshu Sisodiya', 'Bhagwandas', 'Amit Kumar', 'Yogesh Kumar', 'Aman', 'Nishita Rohilla', 'Monika', 'Himanshu Kumar', 'Adarsh Sharma', 'Nitin Dwivedi', 'Poonam', 'Ankit Singh', 'Sagar Sharma', 'Md Asif Hussain', 'Sanjana Singh', 'Anshul Kulshrestha', 'Rupesh Singh', 'Urvashi', 'Ashwani Dubeydi'];
 
 const generalNamesSupremeSpartans = ['Puneet Sharma', 'Ruapnshak', 'Neeraj Pandey', 'Charu Rajput', 'Ramesh Kumawatt', 'Anoop Singh', 'Priya Singh', 'Amit Kumar', 'Vivek Kumar Anuj', 'Suryanshu Mankotia', 'Mohd Muhib', 'Pankaj Kumar', 'Farhan Ahmad', 'Deepanshu Rawat', 'Prashant Kashyap', 'Chirag Ahuja', 'Ayush Mishra', 'Jai Prakash', 'Hem Singh', 'Pankaj Kasaudhan', 'Md Asif Iqbal', 'Gurmeet Singh', 'Sumit Kumar', 'Dileep Kumar', 'Tabish Ashfaque', 'Arti Singh', 'Abhijeet Kumar', 'Mohammad Sarfaraz', 'Sonam Kumari', 'Rohit', 'Faisal', 'Shivam Kumar', 'Mohd Musab Khan', 'Jayki Kumar', 'Pankaj Upadhayay', 'Md. Asif Ali Zahur', 'Mohd Hammad', 'Ch L Deepak', 'Gunjan', 'Shivangi', 'Megha Singh', 'Sonam Singh', 'Gourav Sain', 'Ashish Kumar', 'Kanhaiya Nath', 'Anish Singh Thakur', 'Deepak Kumar', 'Priya Goyal', 'Pooja', 'Manusha Ray', 'Mohd Akram', 'Salman', 'Md Ekramul', 'Rahul Kumar Soni', 'Deepali Srivastava', 'Khursheed Ahmad', 'Fairi', 'Ravindra', 'Rohit', 'Vipin Kumar', 'Rachit Mishra', 'Lalchnd', 'Abhishek Kumar', 'Anam Malik', 'Rohit Negi', 'Sakshi', 'Diksha', 'Aryan Gupta', 'Shahbaaj Akhtar', 'Rajan Sharma', 'Bhawesh Bhandari', 'Sunaina', 'Ritika', 'Neeraj', 'Deepali Singh', 'Md. Aarif Ansari', 'Neha Rani', 'Ruchi', 'Deepak Garg', 'Sanjay Kumar', 'Radhika', 'Amir Khan', 'Sandhya', 'Dwarikadhish Prachi', 'Shashank', 'Kulbushan Raina'];
-
-
 
 const cricketRoles = [
   'Captain', 

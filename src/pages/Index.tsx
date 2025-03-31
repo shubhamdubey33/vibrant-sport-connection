@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -10,6 +11,7 @@ import Footer from "@/components/Footer";
 import { participants, teams } from "@/data/mockData";
 import { Participant, Team } from "@/types";
 import { CricketBackground, TugOfWarBackground, VolunteerBackground, GeneralBackground } from "@/components/CategoryBackgrounds";
+import { LemonRaceBackground } from "@/components/LemonRaceBackground";
 
 // Sample team leaders data - in a real app this would come from your API
 const teamLeaders = [
@@ -23,8 +25,8 @@ const teamLeaders = [
   {
     id: "leader-2",
     name: "Anil Sharma",
-    title: "Team  Head",
-    team: "Dark Knights" as Team,
+    title: "Team Head",
+    team: "Knight Vipers" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Morgan&mouth=smile&eyes=surprised"
   },
   {
@@ -52,7 +54,7 @@ const teamLeaders = [
     id: "leader-6",
     name: "Riley Parker",
     title: "Sports Manager",
-    team: "Concrete Titans" as Team,
+    team: "Eagle Warriors" as Team,
     avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Riley&mouth=smile&eyes=eyeRoll"
   }
 ];
@@ -194,7 +196,7 @@ const Index = () => {
         category="Cricket"
         participants={getCategoryParticipants("Cricket")}
         backgroundElement={<CricketBackground />}
-        defaultTeam="Brick Blazers"
+        defaultTeam="Knight Vipers"
       />
       
       {/* Tug of War Section */}
@@ -206,6 +208,17 @@ const Index = () => {
         participants={getCategoryParticipants("Tug of War")}
         className="bg-amber-50"
         backgroundElement={<TugOfWarBackground />}
+      />
+
+      {/* General Sports (Lemon Race) Section */}
+      <CategorySection
+        id="lemonrace"
+        title="General Sports (Lemon Race)"
+        description="Test your balance and coordination in this fun and exciting lemon race. Participants will race while balancing a lemon on a spoon."
+        category="General"
+        participants={getCategoryParticipants("General")}
+        className="bg-yellow-50"
+        backgroundElement={<LemonRaceBackground />}
       />
       
       {/* Volunteers Section */}
