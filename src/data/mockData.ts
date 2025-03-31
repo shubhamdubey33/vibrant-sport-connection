@@ -1,4 +1,94 @@
-import { Participant, TeamData, Team } from '../types';
+
+import { Participant, TeamData, Team, Category } from '../types';
+
+// Define all the name arrays that were referenced but not defined
+const cricketNamesDarkKnights = [
+  "Rajiv Singh", "Deepak Kumar", "Mahesh Gupta", "Vijay Sharma",
+  "Aditya Patel", "Rahul Joshi", "Ankit Verma", "Suresh Yadav",
+  "Ravi Agarwal", "Sanjay Mishra", "Rakesh Tiwari"
+];
+
+const tugOfWarNamesDarkKnights = [
+  "Arvind Mehta", "Praveen Kumar", "Harish Tiwari", "Dinesh Shukla", 
+  "Manoj Khanna", "Nitin Sharma", "Amit Singh", "Vinod Patel"
+];
+
+const volunteerNamesDarkKnights = [
+  "Vipul Agarwal", "Prateek Sharma", "Kunal Joshi", "Naveen Gupta"
+];
+
+const generalNamesDarkKnights = [
+  "Vivek Singh", "Ashish Kumar", "Ramesh Verma", "Satish Patel", 
+  "Rajesh Gupta", "Sudhir Tiwari", "Mukesh Yadav", "Pradeep Jain",
+  "Sandeep Mehta", "Raju Sharma", "Alok Mishra", "Ajay Kumar"
+];
+
+const cricketNamesEagleWarriors = [
+  "Girish Bhatt", "Manish Nair", "Rajeev Pillai", "Kamal Nath", 
+  "Ajith Kumar", "Sunil Menon", "Varghese Thomas", "Jacob Mathew", 
+  "Prashant Iyer", "Siddharth Nair", "Vipin Krishnan"
+];
+
+const tugOfWarNamesEagleWarriors = [
+  "Balu Krishna", "Harish Menon", "Santhosh Nair", "Rajesh Kurup", 
+  "Mohan Das", "Vivek Pillai", "Arun Nair", "Vinod Menon"
+];
+
+const volunteerNamesEagleWarriors = [
+  "Anoop Krishnan", "Rahul Nair", "Jithin Thomas", "Girish Kumar", 
+  "Biju Joseph", "Shyam Lal"
+];
+
+const generalNamesEagleWarriors = [
+  "Anil Kumar", "Suresh Babu", "Manoj Varma", "Sanjay Nair", 
+  "Vijay Menon", "Rajiv Pillai", "Ravi Krishnan", "Prakash Nair", 
+  "Deepak Thomas", "Satheesh Kumar"
+];
+
+const cricketNamesRoyalStrikers = [
+  "Abhishek Khanna", "Varun Malhotra", "Karan Bhatia", "Rohit Sinha", 
+  "Arjun Kapoor", "Gaurav Khanna", "Nikhil Dhawan", "Mohit Sharma", 
+  "Vikram Mehta", "Avinash Arora", "Siddharth Khanna"
+];
+
+const tugOfWarNamesRoyalStrikers = [
+  "Rahul Bhatia", "Vikas Kapoor", "Neeraj Sinha", "Sameer Khanna", 
+  "Rajan Malhotra", "Anuj Dhawan", "Tarun Mehta", "Deepak Arora"
+];
+
+const volunteerNamesRoyalStrikers = [
+  "Vishal Sinha", "Ajay Kapoor", "Saurabh Khanna", "Rajat Malhotra", 
+  "Vineet Dhawan"
+];
+
+const generalNamesRoyalStrikers = [
+  "Rajesh Malhotra", "Amit Khanna", "Sunil Kapoor", "Manish Sinha", 
+  "Naveen Bhatia", "Ravish Kumar", "Pankaj Dhawan", "Alok Mehta", 
+  "Ashish Arora", "Mayank Sharma", "Rakesh Khanna", "Vivek Malhotra",
+  "Deepak Sinha", "Rajeev Kapoor"
+];
+
+const cricketNamesSupremeSpartans = [
+  "Arun Bhandari", "Prashant Chaudhary", "Vikrant Thakur", "Himanshu Saxena", 
+  "Rohit Jaiswal", "Sanjay Pandey", "Gaurav Saxena", "Deepak Chauhan", 
+  "Vikas Bhandari", "Ravindra Thakur", "Amit Chaudhary"
+];
+
+const tugOfWarNamesSupremeSpartans = [
+  "Rajat Pandey", "Neeraj Chauhan", "Sandeep Bhandari", "Akhilesh Thakur", 
+  "Manoj Saxena", "Vivek Jaiswal", "Ankit Pandey", "Nitin Chauhan"
+];
+
+const volunteerNamesSupremeSpartans = [
+  "Praveen Bhandari", "Sudhir Chauhan", "Vishnu Thakur", "Ajay Saxena", 
+  "Rahul Jaiswal", "Saurabh Pandey", "Nikhil Chauhan"
+];
+
+const generalNamesSupremeSpartans = [
+  "Ashish Bhandari", "Rajesh Chauhan", "Vinod Thakur", "Anuj Saxena", 
+  "Ravi Jaiswal", "Amar Pandey", "Deepak Chauhan", "Siddharth Bhandari", 
+  "Rajeev Thakur", "Vikas Chauhan", "Gaurav Jaiswal"
+];
 
 export const teams: TeamData[] = [
   {
