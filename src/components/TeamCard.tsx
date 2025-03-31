@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { TeamData } from "@/types";
+import { TeamData, Team } from "@/types";
 import { Users, Anchor, HeartHandshake, Trophy } from "lucide-react";
 
 interface TeamCardProps {
@@ -33,14 +33,14 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
           >
             <div className="w-full h-full overflow-hidden relative">
-              {team.name === 'Brick Blazers' && (
+              {team.name === 'Knight Vipers' && (
                 <div className="absolute inset-0 flex flex-wrap opacity-60">
                   {[...Array(20)].map((_, i) => (
                     <div key={i} className="w-1/4 h-1/5 border border-orange-700/60"></div>
                   ))}
                 </div>
               )}
-              {team.name === 'Concrete Titans' && (
+              {team.name === 'Eagle Warriors' && (
                 <div className="absolute inset-0">
                   {[...Array(8)].map((_, i) => (
                     <div 
@@ -57,13 +57,13 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
                   ))}
                 </div>
               )}
-              {team.name === 'Steel Strikers' && (
+              {team.name === 'Royal Strikers' && (
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200/30 transform -translate-y-1/2"></div>
                   <div className="absolute top-0 bottom-0 left-1/2 w-2 bg-gray-200/30 transform -translate-x-1/2"></div>
                 </div>
               )}
-              {team.name === 'Design Dynamos' && (
+              {team.name === 'Supreme Spartans' && (
                 <div className="absolute inset-0 overflow-hidden">
                   {[...Array(6)].map((_, i) => (
                     <motion.div 

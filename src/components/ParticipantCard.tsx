@@ -1,6 +1,6 @@
 
 import { motion } from "framer-motion";
-import { Participant } from "@/types";
+import { Participant, Team } from "@/types";
 import { cn } from "@/lib/utils";
 
 interface ParticipantCardProps {
@@ -27,13 +27,13 @@ const ParticipantCard = ({ participant, index, delay = 0 }: ParticipantCardProps
 
   const getTeamColor = () => {
     switch(participant.team) {
-      case 'Brick Blazers':
+      case 'Knight Vipers':
         return 'border-team-brick/30';
-      case 'Concrete Titans':
+      case 'Eagle Warriors':
         return 'border-team-concrete/30';
-      case 'Steel Strikers':
+      case 'Royal Strikers':
         return 'border-team-steel/30';
-      case 'Design Dynamos':
+      case 'Supreme Spartans':
         return 'border-team-design/30';
       default:
         return 'border-gray-200';
