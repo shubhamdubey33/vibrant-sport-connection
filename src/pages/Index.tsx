@@ -10,7 +10,12 @@ import Schedule from "@/components/Schedule";
 import Footer from "@/components/Footer";
 import { participants, teams } from "@/data/mockData";
 import { Participant, Team } from "@/types";
-import { CricketBackground, TugOfWarBackground, VolunteerBackground, GeneralBackground } from "@/components/CategoryBackgrounds";
+import { 
+  CricketBackground, 
+  TugOfWarBackground, 
+  VolunteerBackground, 
+  GeneralBackground 
+} from "@/components/CategoryBackgrounds";
 import { LemonRaceBackground } from "@/components/LemonRaceBackground";
 
 // Sample team leaders data - in a real app this would come from your API
