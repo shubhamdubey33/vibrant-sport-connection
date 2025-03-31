@@ -7,8 +7,8 @@ const scheduleData = [
     day: "April 26, 2025",
     events: [
       { time: "09:00 AM", title: "Opening Ceremony", location: "Main Field" },
-      { time: "10:00 AM", title: "Cricket Match: Brick Blazers vs Steel Strikers", location: "Cricket Field A" },
-      { time: "10:00 AM", title: "Cricket Match: Concrete Titans vs Design Dynamos", location: "Cricket Field B" },
+      { time: "10:00 AM", title: "Cricket Match: Knight Vipers vs Royal Strikers", location: "Cricket Field A" },
+      { time: "10:00 AM", title: "Cricket Match: Eagle Warriors vs Supreme Spartans", location: "Cricket Field B" },
       { time: "12:30 PM", title: "Lunch Break", location: "Food Court" },
       { time: "01:30 PM", title: "Tug of War Preliminary Rounds", location: "Event Area" },
       { time: "03:30 PM", title: "Cricket Finals", location: "Cricket Field A" },

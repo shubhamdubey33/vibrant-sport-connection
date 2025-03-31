@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Participant } from "@/types";
 import ParticipantCard from "./ParticipantCard";

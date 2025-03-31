@@ -206,7 +206,7 @@ const Index = () => {
         description="Teams of 8 will test their strength and coordination in this classic battle of willpower and teamwork."
         category="Tug of War"
         participants={getCategoryParticipants("Tug of War")}
-        className="bg-amber-50"
+        className="bg-amber-100"
         backgroundElement={<TugOfWarBackground />}
       />
 
@@ -217,7 +217,7 @@ const Index = () => {
         description="Test your balance and coordination in this fun and exciting lemon race. Participants will race while balancing a lemon on a spoon."
         category="General"
         participants={getCategoryParticipants("General")}
-        className="bg-yellow-50"
+        className="bg-purple-50"
         backgroundElement={<LemonRaceBackground />}
       />
       

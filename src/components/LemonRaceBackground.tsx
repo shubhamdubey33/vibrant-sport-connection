@@ -7,6 +7,22 @@ export const LemonRaceBackground = () => {
       {/* Background patterns */}
       <div className="absolute inset-0 bg-yellow-50 opacity-50"></div>
       
+      {/* Featured lemon gif in top left */}
+      <motion.div 
+        className="absolute top-10 left-10 z-10"
+        animate={{ 
+          y: [0, -10, 0, 10, 0],
+          rotate: [0, 10, 0, -10, 0]
+        }}
+        transition={{ 
+          duration: 4, 
+          repeat: Infinity,
+          ease: "easeInOut" 
+        }}
+      >
+        <span className="text-6xl">🍋</span>
+      </motion.div>
+      
       {/* Animated lemon elements */}
       {[...Array(6)].map((_, i) => (
         <motion.div

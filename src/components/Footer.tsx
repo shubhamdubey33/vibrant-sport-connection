@@ -34,10 +34,10 @@ const Footer = () => {
           <div>
             <h4 className="font-medium text-sm uppercase tracking-wider text-gray-500 mb-4">Teams</h4>
             <ul className="space-y-2">
-              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Brick Blazers</a></li>
-              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Concrete Titans</a></li>
-              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Steel Strikers</a></li>
-              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Design Dynamos</a></li>
+              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Knight Vipers</a></li>
+              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Eagle Warriors</a></li>
+              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Royal Strikers</a></li>
+              <li><a href="#teams" className="text-sm text-gray-600 hover:text-primary transition-colors">Supreme Spartans</a></li>
             </ul>
           </div>
           
