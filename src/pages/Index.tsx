@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -18,49 +17,35 @@ import {
 } from "@/components/CategoryBackgrounds";
 import { LemonRaceBackground } from "@/components/LemonRaceBackground";
 
-// Sample team leaders data - in a real app this would come from your API
+// Sample team leaders data with real images
 const teamLeaders = [
   {
     id: "leader-1",
     name: "Sagar Kumar",
     title: "Commentator",
     team: "Royal Strikers" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Jordan&mouth=smile&eyes=hearts"
+    avatar: "/lovable-uploads/c3465021-9402-4660-82d8-0bd069d8590e.png"
   },
   {
     id: "leader-2",
     name: "Anil Sharma",
     title: "Team Head",
     team: "Knight Vipers" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Morgan&mouth=smile&eyes=surprised"
+    avatar: "/lovable-uploads/f7ac912f-e65e-41ea-b20f-a13791968c61.png"
   },
   {
     id: "leader-3",
     name: "Nisha Rawat",
     title: "Team Head",
     team: "Royal Strikers" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Taylor&mouth=smile&eyes=wink"
+    avatar: "/lovable-uploads/01c86549-0bab-46b0-8e33-20474c183fba.png"
   },
   {
     id: "leader-4",
     name: "Namrata Tiwari",
     title: "Team Head",
     team: "Eagle Warriors" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Jordan&mouth=smile&eyes=hearts"
-  },
-  {
-    id: "leader-5",
-    name: "Shubham Dubey",
-    title: "Team Head",
-    team: "Supreme Spartans" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Casey&mouth=smile&eyes=default"
-  },
-  {
-    id: "leader-6",
-    name: "Riley Parker",
-    title: "Sports Manager",
-    team: "Eagle Warriors" as Team,
-    avatar: "https://api.dicebear.com/6.x/avataaars/svg?seed=Riley&mouth=smile&eyes=eyeRoll"
+    avatar: "/lovable-uploads/624ff03d-0c33-40f3-b633-bbc3749d74cf.png"
   }
 ];
 

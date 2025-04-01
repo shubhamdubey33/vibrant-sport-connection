@@ -53,8 +53,12 @@ const TeamLeaders = ({ leaders }: TeamLeadersProps) => {
                         repeatType: "reverse" 
                       }}
                     />
-                    <Avatar className="h-24 w-24 border-2 border-white shadow-md relative transition-transform duration-300 hover:scale-110">
-                      <AvatarImage src={leader.avatar} alt={leader.name} />
+                    <Avatar className="h-24 w-24 border-2 border-white shadow-md relative transition-transform duration-300 hover:scale-110 overflow-hidden">
+                      <AvatarImage 
+                        src={leader.avatar} 
+                        alt={leader.name}
+                        className="object-cover w-full h-full"
+                      />
                       <AvatarFallback>{leader.name.substring(0, 2)}</AvatarFallback>
                     </Avatar>
                   </div>
