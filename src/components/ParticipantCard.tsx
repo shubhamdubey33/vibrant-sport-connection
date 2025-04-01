@@ -20,6 +20,8 @@ const ParticipantCard = ({ participant, index, delay = 0 }: ParticipantCardProps
         return 'bg-blue-500';
       case 'General':
         return 'bg-purple-500';
+      case 'Sports':
+        return 'bg-pink-500';
       default:
         return 'bg-gray-500';
     }

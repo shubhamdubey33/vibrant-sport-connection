@@ -2,117 +2,41 @@
 import { Participant, TeamData, Team, Category } from '../types';
 
 // Define all the name arrays that were referenced but not defined
-const cricketNamesDarkKnights = [
-  "Rajiv Singh", "Deepak Kumar", "Mahesh Gupta", "Vijay Sharma",
-  "Aditya Patel", "Rahul Joshi", "Ankit Verma", "Suresh Yadav",
-  "Ravi Agarwal", "Sanjay Mishra", "Rakesh Tiwari"
-];
-
-const tugOfWarNamesDarkKnights = [
+const cricketNamesKnightVipers = ['Gaurav Bhandhari (C)', 'Shubham Rawat (VC)', 'Rakshit', 'Ravi Kumar', 'Md. Ragib', 'Sachin Negi', 'Raman Kumar', 'Mustaqeem', 'Shoeb Akhtar', 'Gaurav Joshi', 'Zaheer','Tarun Sharma','Ramkishan','Sanjay','Bittu Kumar'];
+const tugOfWarNamesKnightVipers = [
   "Arvind Mehta", "Praveen Kumar", "Harish Tiwari", "Dinesh Shukla", 
   "Manoj Khanna", "Nitin Sharma", "Amit Singh", "Vinod Patel"
 ];
+const volunteerNamesKnightVipers = [ "Vipul Agarwal", "Prateek Sharma", "Kunal Joshi", "Naveen Gupta"];
+const generalNamesKnightVipers = ['Anish Verma', 'Prakash Barkhane', 'RAVIKUMAR SINGH', 'SUBODH SUNDRIYAL', 'Mustaqeem khan', 'Bittu Kumar', 'Manu Kumar', 'Gaurav Bhatt', 'Shalini', 'Tarun sharma', 'Tarun sharma', 'Rohit gupta', 'Maya Chaurasia', 'Raman Khohal', 'Mayank Pandey', 'Anagha Jagdale', 'Ramkishan', 'Manisha chahal', 'Pritesh ranjan', 'Keshav Suman', 'ARNAB HATI', 'Zahir hussain', 'Sachin Kumar Singh', 'Shivani karnwal', 'SHITALA PRASAD MAURYA', 'Sachin negi', 'Rakshit Pandey', 'Bhuwan Chandra pant', 'Md shoaib akhtar', 'Azam Ahmad', 'Gaurav Joshi', 'Piyush Chauhan', 'Mohd Ragib', 'Jatin kaushal', 'Rajeev Ranjan', 'Shubham Rawat', 'Sanjay Kumar', 'Deeksha', 'Gunjan chand', 'Soni', 'Aditya singh', 'Sadhna kuamri', 'Sakshi', 'Kshitij Prakash', 'Rohit kumar', 'Mohd Kabir', 'Neha Rani', 'Ruchi', 'Dwarikadhish prachi', 'Gaurav bhandari', 'Gaurav Singh', 'Deepika pareek', 'Pooja pareek', 'Amit Yaduvanshi', 'Ashutosh kumar', 'Saurabh Sharma', 'ASHFAQ AHMED', 'Monika Sharma', 'Amresh Kumar', 'Chetna', 'Utkarsh singh', 'Krishna Singh', 'Vivek Bharti'];
+const SportsKnightVipers =['test','name'];
 
-const volunteerNamesDarkKnights = [
-  "Vipul Agarwal", "Prateek Sharma", "Kunal Joshi", "Naveen Gupta"
-];
-
-const generalNamesDarkKnights = [
-  "Vivek Singh", "Ashish Kumar", "Ramesh Verma", "Satish Patel", 
-  "Rajesh Gupta", "Sudhir Tiwari", "Mukesh Yadav", "Pradeep Jain",
-  "Sandeep Mehta", "Raju Sharma", "Alok Mishra", "Ajay Kumar"
-];
-
-// NEW: Adding General Sports participants for Knight Vipers
-const generalSportsKnightVipers = [
-  "Arjun Mishra", "Pankaj Singh", "Vivek Tiwari", "Saurabh Gupta",
-  "Vishal Kumar", "Kapil Sharma", "Mohan Das", "Akash Verma"
-];
-
-const cricketNamesEagleWarriors = [
-  "Girish Bhatt", "Manish Nair", "Rajeev Pillai", "Kamal Nath", 
-  "Ajith Kumar", "Sunil Menon", "Varghese Thomas", "Jacob Mathew", 
-  "Prashant Iyer", "Siddharth Nair", "Vipin Krishnan"
-];
-
+const cricketNamesEagleWarriors = ['Amir Khan', 'Gaurav Negi', 'Vinay Bhardwaj', 'Manoj Chopal', 'Farjan', 'Neeraj Kumar', 'Sumit Negi', 'Yash', 'Yavnish Gautam', 'Aniket Kumar', 'Sarfaraz', 'Ganesh Aggarwal', 'Abdul', 'Prince Nishad', 'Arnav Pandey'];
 const tugOfWarNamesEagleWarriors = [
   "Balu Krishna", "Harish Menon", "Santhosh Nair", "Rajesh Kurup", 
   "Mohan Das", "Vivek Pillai", "Arun Nair", "Vinod Menon"
 ];
+const volunteerNamesEagleWarriors = ['Lalit Chauhan ', 'Anam Malik', 'Rajesh', 'Rajesh', 'Rajesh', 'Rajesh', 'Rajesh', 'Rajesh'];
+const generalNamesEagleWarriors = ['Jacky', 'Prince Nishad', 'Ankit Yadav', 'Deepu', 'Swati', 'Rohit Kandpal', 'Abdul Taukeer', 'Sangeeta Rawat', 'Vikas Ahiwal', 'Krishna Rajput', 'Abhishek Verma', 'Raj Singh', 'Yavnish Gautam', 'Aniket Kumar', 'Aman', 'Junaid', 'Sumyra Masood', 'Hasan', 'Ajay Kumar', 'Archita', 'Farjan Khan', 'Khushboo Sharma', 'Sachin Sharma', 'Hasan', 'Amit', 'Gulafsha Parween', 'Neeraj', 'Sukh Kumar', 'Lalit Chauhan', 'Prashant', 'Asheer Rizvi', 'Komal Verma', 'Amees Khan', 'Sarfraj Alam', 'Ankita Choudhary', 'Aman Kumar', 'Ganesh Agrawal', 'Shivani Rani', 'Preeti Yadav', 'Sruti Rekha Satapathy', 'Ajay Kumar Sah', 'Nisha Sharma', 'Preeti', 'Manoj Singh Chuphal', 'Km Usha', 'Mohit Saini', 'Vishakha', 'Tulsi', 'Kamal Kumar', 'Ritik Pandey', 'Sumit Negi', 'Harsh Saxena', 'Chandrakanta Arya', 'Himanshu Kandpal', 'Sumit Singh Rawat', 'Anmol', 'Mohd Siraj', 'Khushboo Prajapati', 'Surbhi'];
+const SportsEagleWarriors =['Jagdeep', 'Sameer Sharma', 'Sagar Kumar', 'Ankit Goyat'];
 
-const volunteerNamesEagleWarriors = [
-  "Anoop Krishnan", "Rahul Nair", "Jithin Thomas", "Girish Kumar", 
-  "Biju Joseph", "Shyam Lal"
-];
-
-const generalNamesEagleWarriors = [
-  "Anil Kumar", "Suresh Babu", "Manoj Varma", "Sanjay Nair", 
-  "Vijay Menon", "Rajiv Pillai", "Ravi Krishnan", "Prakash Nair", 
-  "Deepak Thomas", "Satheesh Kumar"
-];
-
-// NEW: Adding General Sports participants for Eagle Warriors
-const generalSportsEagleWarriors = [
-  "Arun Menon", "Vishnu Pillai", "Jithin Nair", "Rajiv Thomas",
-  "Santhosh Krishnan", "Rahul Das", "Anil Varma", "Sunil Jacob"
-];
-
-const cricketNamesRoyalStrikers = [
-  "Abhishek Khanna", "Varun Malhotra", "Karan Bhatia", "Rohit Sinha", 
-  "Arjun Kapoor", "Gaurav Khanna", "Nikhil Dhawan", "Mohit Sharma", 
-  "Vikram Mehta", "Avinash Arora", "Siddharth Khanna"
-];
-
+const cricketNamesRoyalStrikers = ['Tushar Tyagi', 'Samshul Ali', 'Manish Kumar', 'Kuldeep Varun', 'Hammad Hassan', 'Neeraj Saraswat', 'Himanshu Pal', 'Sarik Alam', 'Atul Rawat', 'Ravi Sharma', 'Mukesh Khan', 'Rupesh', 'Devesh', 'Anshul Kulshresta', 'Yogesh Rawat'];
 const tugOfWarNamesRoyalStrikers = [
   "Rahul Bhatia", "Vikas Kapoor", "Neeraj Sinha", "Sameer Khanna", 
   "Rajan Malhotra", "Anuj Dhawan", "Tarun Mehta", "Deepak Arora"
 ];
-
 const volunteerNamesRoyalStrikers = [
   "Vishal Sinha", "Ajay Kapoor", "Saurabh Khanna", "Rajat Malhotra", 
   "Vineet Dhawan"
 ];
+const generalNamesRoyalStrikers = ['Neenanjali', 'Wairokpam Ogaka', 'Jagdeep', 'Sameer Sharma', 'Sagar Kumar', 'Ankit Goyat', 'Ravi Sharma', 'Gajendra Singh', 'Nisha', 'Arjun Kumar', 'Dilnawaz Ahmad', 'Abhishek Gaur', 'Kuldeep Kumar Varun', 'Satyapal Singh', 'Rajdeepak Gupta', 'Suraj Prajapati', 'Atul Rawat', 'Abdul Karim Ansari', 'Tushar Kant', 'Aman Srivastava', 'Manish Kumar', 'Tushar Tyagi', 'Rajnish Pal', 'Ajay Pandey', 'Yogesh Rawat', 'Ravi Kumar Jaiswal', 'Tanuj Sharma', 'Pramod Dhoundiyal', 'Praveen', 'Yogesh', 'Sharique', 'Sam Siddiqui', 'Nisha', 'Preeti Rautela', 'Mansi Bhainsora', 'Neeraj Saraswat', 'Mukeet Khan', 'Devesh Al', 'Hammad Hassan', 'Surya', 'Shubham Verma', 'Vinod Kumar', 'Sachin Singh Rathore (S.S. Rathore)', 'Aastha Mishra', 'Nitilesh Kumar', 'Akash Kumar', 'Hitesh Kumar', 'Sunil Rajbhor', 'Sonali', 'Imtiyaj', 'Aman Kumar', 'Akash', 'Ajab Singh', 'Suman', 'Himanshu Sisodiya', 'Bhagwandas', 'Amit Kumar', 'Yogesh Kumar', 'Aman', 'Nishita Rohilla', 'Monika', 'Himanshu Kumar', 'Adarsh Sharma', 'Nitin Dwivedi', 'Poonam', 'Ankit Singh', 'Sagar Sharma', 'Md Asif Hussain', 'Sanjana Singh', 'Anshul Kulshrestha', 'Rupesh Singh', 'Urvashi', 'Ashwani Dubeydi'];
+const SportsRoyalStrikers =['Jagdeep', 'Sameer Sharma', 'Sagar Kumar', 'Ankit Goyat'];
 
-const generalNamesRoyalStrikers = [
-  "Rajesh Malhotra", "Amit Khanna", "Sunil Kapoor", "Manish Sinha", 
-  "Naveen Bhatia", "Ravish Kumar", "Pankaj Dhawan", "Alok Mehta", 
-  "Ashish Arora", "Mayank Sharma", "Rakesh Khanna", "Vivek Malhotra",
-  "Deepak Sinha", "Rajeev Kapoor"
-];
-
-// NEW: Adding General Sports participants for Royal Strikers
-const generalSportsRoyalStrikers = [
-  "Karan Malhotra", "Siddharth Kapoor", "Rohit Dhawan", "Vikas Sinha",
-  "Nikhil Bhatia", "Anuj Khanna", "Tarun Arora", "Deepak Mehta"
-];
-
-const cricketNamesSupremeSpartans = [
-  "Arun Bhandari", "Prashant Chaudhary", "Vikrant Thakur", "Himanshu Saxena", 
-  "Rohit Jaiswal", "Sanjay Pandey", "Gaurav Saxena", "Deepak Chauhan", 
-  "Vikas Bhandari", "Ravindra Thakur", "Amit Chaudhary"
-];
-
-const tugOfWarNamesSupremeSpartans = [
-  "Rajat Pandey", "Neeraj Chauhan", "Sandeep Bhandari", "Akhilesh Thakur", 
-  "Manoj Saxena", "Vivek Jaiswal", "Ankit Pandey", "Nitin Chauhan"
-];
-
-const volunteerNamesSupremeSpartans = [
-  "Praveen Bhandari", "Sudhir Chauhan", "Vishnu Thakur", "Ajay Saxena", 
-  "Rahul Jaiswal", "Saurabh Pandey", "Nikhil Chauhan"
-];
-
-const generalNamesSupremeSpartans = [
-  "Ashish Bhandari", "Rajesh Chauhan", "Vinod Thakur", "Anuj Saxena", 
-  "Ravi Jaiswal", "Amar Pandey", "Deepak Chauhan", "Siddharth Bhandari", 
-  "Rajeev Thakur", "Vikas Chauhan", "Gaurav Jaiswal"
-];
-
-// NEW: Adding General Sports participants for Supreme Spartans
-const generalSportsSupremeSpartans = [
-  "Prashant Saxena", "Vikrant Bhandari", "Himanshu Pandey", "Rohit Chauhan",
-  "Sanjay Thakur", "Gaurav Jaiswal", "Deepak Bhandari", "Vikas Pandey"
-];
+const cricketNamesSupremeSpartans = ['Chirag Vijay Ahuja', 'Muhib', 'Prshant Kashyap', 'Arif Ansari', 'Pawan', 'Pankaj Upadhyay', 'Ravindra', 'Ramesh', 'Gurmeet', 'Aneesh', 'Ajay', 'Faizal', 'Neeraj Pandey', 'Hammad', 'Abhishek'];
+const tugOfWarNamesSupremeSpartans = [ 'Neeraj Pandey', 'Ramesh Kumawatt', 'Anoop Singh', 'Amit Kumar', 'Vivek Kumar Anuj', 'Suryanshu Mankotia', 'Mohd Muhib', 'Pankaj Kumar', 'Farhan Ahmad', 'Deepanshu Rawat', 'Prashant Kashyap', 'Ayush Mishra', 'Jai Prakash', 'Hem Singh', 'Pankaj Kasaudhan'];
+const volunteerNamesSupremeSpartans = ['Suryanshu ', 'Chirag V.', 'Subodh', 'Hem Singh', 'Abhijeet ', 'Pnakaj K.'];
+const generalNamesSupremeSpartans = ['Puneet Sharma', 'Ruapnshak', 'Neeraj Pandey', 'Charu Rajput', 'Ramesh Kumawatt', 'Anoop Singh', 'Priya Singh', 'Amit Kumar', 'Vivek Kumar Anuj', 'Suryanshu Mankotia', 'Mohd Muhib', 'Pankaj Kumar', 'Farhan Ahmad', 'Deepanshu Rawat', 'Prashant Kashyap', 'Chirag Ahuja', 'Ayush Mishra', 'Jai Prakash', 'Hem Singh', 'Pankaj Kasaudhan', 'Md Asif Iqbal', 'Gurmeet Singh', 'Sumit Kumar', 'Dileep Kumar', 'Tabish Ashfaque', 'Arti Singh', 'Abhijeet Kumar', 'Mohammad Sarfaraz', 'Sonam Kumari', 'Rohit', 'Faisal', 'Shivam Kumar', 'Mohd Musab Khan', 'Jayki Kumar', 'Pankaj Upadhayay', 'Md. Asif Ali Zahur', 'Mohd Hammad', 'Ch L Deepak', 'Gunjan', 'Shivangi', 'Megha Singh', 'Sonam Singh', 'Gourav Sain', 'Ashish Kumar', 'Kanhaiya Nath', 'Anish Singh Thakur', 'Deepak Kumar', 'Priya Goyal', 'Pooja', 'Manusha Ray', 'Mohd Akram', 'Salman', 'Md Ekramul', 'Rahul Kumar Soni', 'Deepali Srivastava', 'Khursheed Ahmad', 'Fairi', 'Ravindra', 'Rohit', 'Vipin Kumar', 'Rachit Mishra', 'Lalchnd', 'Abhishek Kumar', 'Anam Malik', 'Rohit Negi', 'Sakshi', 'Diksha', 'Aryan Gupta', 'Shahbaaj Akhtar', 'Rajan Sharma', 'Bhawesh Bhandari', 'Sunaina', 'Ritika', 'Neeraj', 'Deepali Singh', 'Md. Aarif Ansari', 'Neha Rani', 'Ruchi', 'Deepak Garg', 'Sanjay Kumar', 'Radhika', 'Amir Khan', 'Sandhya', 'Dwarikadhish Prachi', 'Shashank', 'Kulbushan Raina'];
+const SportsSupremeSpartans =['asssa','sasas'];
 
 export const teams: TeamData[] = [
   {
@@ -190,91 +114,93 @@ const cricketRoles = [
 
 export const participants: Participant[] = [
   // Knight Vipers
-  ...cricketNamesDarkKnights.map((name, i) => ({
-    id: `ss-cricket-${i+1}`,
+  ...cricketNamesKnightVipers.map((name, i) => ({
+    id: `kv-cricket-${i+1}`,
     name: name,
     team: 'Knight Vipers' as Team,
     category: 'Cricket' as Category,
-    role: cricketRoles[i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder',
-    avatar: `https://i.pravatar.cc/150?u=ss-cricket-${i+1}`
+    role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
+    avatar: `https://i.pravatar.cc/150?u=kv-cricket-${i+1}`
   })),
 
-  ...tugOfWarNamesDarkKnights.map((name, i) => ({
-    id: `bb-tug-${i+1}`,
+  ...tugOfWarNamesKnightVipers.map((name, i) => ({
+    id: `kv-tug-${i+1}`,
     name: name,
     team: 'Knight Vipers' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',
+    avatar: `https://i.pravatar.cc/150?u=kv-tug-${i+1}`
   })),
 
-  ...volunteerNamesDarkKnights.map((name, i) => ({
-    id: `bb-volunteer-${i+1}`,
+  ...volunteerNamesKnightVipers.map((name, i) => ({
+    id: `kv-volunteer-${i+1}`,
     name: name,
     team: 'Knight Vipers' as Team,
     category: 'Volunteer' as Category,
     role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics'][i],
+    avatar: `https://i.pravatar.cc/150?u=kv-volunteer-${i+1}`
   })),
   
-  ...generalNamesDarkKnights.map((name, i) => ({
-    id: `bb-general-${i+1}`,
+  ...SportsKnightVipers.map((name, i) => ({
+    id: `kv-sports-${i+1}`, 
     name: name,
     team: 'Knight Vipers' as Team,
-    category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=bb-general-${i+1}`
-  })),
-
-  // NEW: Adding General Sports for Knight Vipers
-  ...generalSportsKnightVipers.map((name, i) => ({
-    id: `kv-gensports-${i+1}`,
-    name: name,
-    team: 'Knight Vipers' as Team,
-    category: 'General' as Category,
+    category: 'Sports' as Category,
     role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=kv-gensports-${i+1}`
+    avatar: `https://i.pravatar.cc/150?u=kv-sports-${i+1}`
+  })),
+  
+  ...generalNamesKnightVipers.map((name, i) => ({
+    id: `kv-general-${i+1}`,
+    name: name,
+    team: 'Knight Vipers' as Team,
+    category: 'General' as Category,
+    avatar: `https://i.pravatar.cc/150?u=kv-general-${i+1}`
   })),
 
   // Eagle Warriors
   ...cricketNamesEagleWarriors.map((name, i) => ({
-    id: `ss-cricket-${i+1}`,
+    id: `ew-cricket-${i+1}`,
     name: name,
     team: 'Eagle Warriors' as Team,
     category: 'Cricket' as Category,
-    role: cricketRoles[i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder',
-    avatar: `https://i.pravatar.cc/150?u=ss-cricket-${i+1}`
+    role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
+    avatar: `https://i.pravatar.cc/150?u=ew-cricket-${i+1}`
   })),
 
   ...tugOfWarNamesEagleWarriors.map((name, i) => ({
-    id: `ss-tug-${i+1}`,
+    id: `ew-tug-${i+1}`,
     name: name,
     team: 'Eagle Warriors' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',
+    avatar: `https://i.pravatar.cc/150?u=ew-tug-${i+1}`
   })),
   
   ...volunteerNamesEagleWarriors.map((name, i) => ({
-    id: `ss-volunteer-${i+1}`,
+    id: `ew-volunteer-${i+1}`,
     name: name,
     team: 'Eagle Warriors' as Team,
     category: 'Volunteer' as Category,
-    role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Announcer'][i],
+    role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Announcer'][i % 5],
+    avatar: `https://i.pravatar.cc/150?u=ew-volunteer-${i+1}`
+  })),
+  
+  ...SportsEagleWarriors.map((name, i) => ({
+    id: `ew-sports-${i+1}`,
+    name: name,
+    team: 'Eagle Warriors' as Team,
+    category: 'Sports' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=ew-sports-${i+1}`
   })),
   
   ...generalNamesEagleWarriors.map((name, i) => ({
-    id: `ss-general-${i+1}`,
+    id: `ew-general-${i+1}`,
     name: name,
     team: 'Eagle Warriors' as Team,
     category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=ss-general-${i+1}`
-  })),
-
-  // NEW: Adding General Sports for Eagle Warriors
-  ...generalSportsEagleWarriors.map((name, i) => ({
-    id: `ew-gensports-${i+1}`,
-    name: name,
-    team: 'Eagle Warriors' as Team,
-    category: 'General' as Category,
-    role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=ew-gensports-${i+1}`
+    avatar: `https://i.pravatar.cc/150?u=ew-general-${i+1}`
   })),
 
   // Royal Strikers
@@ -283,7 +209,7 @@ export const participants: Participant[] = [
     name: name,
     team: 'Royal Strikers' as Team,
     category: 'Cricket' as Category,
-    role: cricketRoles[i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder',  
+    role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
     avatar: `https://i.pravatar.cc/150?u=rs-cricket-${i+1}`
   })),
   
@@ -305,6 +231,15 @@ export const participants: Participant[] = [
     avatar: `https://i.pravatar.cc/150?u=rs-volunteer-${i+1}`
   })),
   
+  ...SportsRoyalStrikers.map((name, i) => ({
+    id: `rs-sports-${i+1}`,
+    name: name,
+    team: 'Royal Strikers' as Team,
+    category: 'Sports' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=rs-sports-${i+1}`
+  })),
+  
   ...generalNamesRoyalStrikers.map((name, i) => ({
     id: `rs-general-${i+1}`,
     name: name,
@@ -313,23 +248,13 @@ export const participants: Participant[] = [
     avatar: `https://i.pravatar.cc/150?u=rs-general-${i+1}`
   })),
 
-  // NEW: Adding General Sports for Royal Strikers
-  ...generalSportsRoyalStrikers.map((name, i) => ({
-    id: `rs-gensports-${i+1}`,
-    name: name,
-    team: 'Royal Strikers' as Team,
-    category: 'General' as Category,
-    role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=rs-gensports-${i+1}`
-  })),
-
   // Supreme Spartans
   ...cricketNamesSupremeSpartans.map((name, i) => ({
     id: `ss-cricket-${i+1}`,
     name: name,
     team: 'Supreme Spartans' as Team,
     category: 'Cricket' as Category,
-    role: cricketRoles[i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder',
+    role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
     avatar: `https://i.pravatar.cc/150?u=ss-cricket-${i+1}`
   })),
   
@@ -347,8 +272,17 @@ export const participants: Participant[] = [
     name: name,
     team: 'Supreme Spartans' as Team,
     category: 'Volunteer' as Category,
-    role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Photographer', 'Social Media', 'Designer'][i],
+    role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Photographer', 'Social Media'][i],
     avatar: `https://i.pravatar.cc/150?u=ss-volunteer-${i+1}`
+  })),
+  
+  ...SportsSupremeSpartans.map((name, i) => ({
+    id: `ss-sports-${i+1}`,
+    name: name,
+    team: 'Supreme Spartans' as Team,
+    category: 'Sports' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=ss-sports-${i+1}`
   })),
   
   ...generalNamesSupremeSpartans.map((name, i) => ({
@@ -357,15 +291,5 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'General' as Category,
     avatar: `https://i.pravatar.cc/150?u=ss-general-${i+1}`
-  })),
-
-  // NEW: Adding General Sports for Supreme Spartans
-  ...generalSportsSupremeSpartans.map((name, i) => ({
-    id: `ss-gensports-${i+1}`,
-    name: name,
-    team: 'Supreme Spartans' as Team,
-    category: 'General' as Category,
-    role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=ss-gensports-${i+1}`
   })),
 ];

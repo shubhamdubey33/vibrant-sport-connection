@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -200,14 +201,14 @@ const Index = () => {
         backgroundElement={<TugOfWarBackground />}
       />
 
-      {/* General Sports (Lemon Race) Section */}
+      {/* Sports Section (Lemon Race) */}
       <CategorySection
-        id="lemonrace"
-        title="General Sports (Lemon Race)"
-        description="Test your balance and coordination in this fun and exciting lemon race. Participants will race while balancing a lemon on a spoon."
-        category="General"
-        participants={getCategoryParticipants("General")}
-        className="bg-purple-50"
+        id="sports"
+        title="Sports Section"
+        description="Various sports activities including the popular Lemon Race where participants balance a lemon on a spoon while racing."
+        category="Sports"
+        participants={getCategoryParticipants("Sports")}
+        className="bg-pink-50"
         backgroundElement={<LemonRaceBackground />}
       />
       

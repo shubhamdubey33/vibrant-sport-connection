@@ -1,7 +1,7 @@
 
 export type Team = 'Knight Vipers' | 'Eagle Warriors' | 'Royal Strikers' | 'Supreme Spartans';
 
-export type Category = 'Cricket' | 'Tug of War' | 'Volunteer' | 'General';
+export type Category = 'Cricket' | 'Tug of War' | 'Volunteer' | 'General' | 'Sports';
 
 export interface Participant {
   id: string;
