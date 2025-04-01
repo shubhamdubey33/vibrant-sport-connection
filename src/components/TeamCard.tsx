@@ -95,10 +95,33 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
         
         <div className="relative z-10 h-full glass-card rounded-2xl overflow-hidden border border-white/20">
           {/* Top gradient band */}
-          <div className={`h-24 bg-gradient-to-r ${team.color} relative overflow-hidden`}>
+          <div className={`h-24 bg-gradient-to-r ${team.color} relative overflow-hidden flex items-center justify-center`}>
             <div className="team-card-shimmer"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-4xl">{team.logo}</span>
+              {team.name === 'Knight Vipers' && (
+                <img 
+                  src="/lovable-uploads/1ee94a74-cd17-45dc-b852-f8bce8e8d327.png" 
+                  alt="Knight Vipers Logo" 
+                  className="h-20 object-contain"
+                />
+              )}
+              {team.name === 'Eagle Warriors' && (
+                <img 
+                  src="/lovable-uploads/f8c131d7-162c-4560-9031-9e66d52a4e18.png" 
+                  alt="Eagle Warriors Logo" 
+                  className="h-20 object-contain"
+                />
+              )}
+              {team.name === 'Supreme Spartans' && (
+                <img 
+                  src="/lovable-uploads/329f7383-267a-4763-a7f9-26bf5ff45898.png" 
+                  alt="Supreme Spartans Logo" 
+                  className="h-20 object-contain"
+                />
+              )}
+              {team.name === 'Royal Strikers' && (
+                <span className="text-4xl">{team.logo}</span>
+              )}
             </div>
           </div>
           

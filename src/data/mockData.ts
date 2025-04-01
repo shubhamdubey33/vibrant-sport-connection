@@ -93,12 +93,12 @@ const generalNamesSupremeSpartans = [
 export const teams: TeamData[] = [
   {
     name: 'Knight Vipers',
-    color: 'from-red-500 to-orange-500',
-    logo: '🧱',
+    color: 'from-amber-500 to-yellow-600',
+    logo: '🛡️',
     backgroundColor: 'bg-team-brick/10',
     textColor: 'text-team-brick',
     flagColor: 'text-orange-500',
-    flagBackground: 'bg-gradient-to-r from-orange-400 to-orange-600',
+    flagBackground: 'bg-gradient-to-r from-amber-400 to-yellow-600',
     flagSymbol: 'brick-pattern',
     participants: {
       cricket: 11,
@@ -109,12 +109,12 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Eagle Warriors',
-    color: 'from-gray-500 to-gray-600',
-    logo: '🏢',
+    color: 'from-slate-600 to-slate-800',
+    logo: '🦅',
     backgroundColor: 'bg-team-concrete/10',
     textColor: 'text-team-concrete',
     flagColor: 'text-gray-500',
-    flagBackground: 'bg-gradient-to-r from-gray-400 to-gray-600',
+    flagBackground: 'bg-gradient-to-r from-slate-400 to-slate-700',
     flagSymbol: 'concrete-texture',
     participants: {
       cricket: 11,
@@ -125,7 +125,7 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Royal Strikers',
-    color: 'from-blue-900 to-slate-800',  // Updated to match the flag colors
+    color: 'from-blue-900 to-slate-800',  
     logo: '⚙️',
     backgroundColor: 'bg-team-steel/10',
     textColor: 'text-team-steel',
@@ -141,12 +141,12 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Supreme Spartans',
-    color: 'from-teal-400 to-teal-600',  // Updated to match the turquoise flag colors
-    logo: '🎨',
+    color: 'from-red-600 to-red-900',
+    logo: '⚔️',
     backgroundColor: 'bg-team-design/10',
     textColor: 'text-team-design',
-    flagColor: 'text-teal-500',
-    flagBackground: 'bg-gradient-to-r from-teal-400 to-teal-600',
+    flagColor: 'text-red-600',
+    flagBackground: 'bg-gradient-to-r from-red-600 to-red-900',
     flagSymbol: 'design-lines',
     participants: {
       cricket: 11,
