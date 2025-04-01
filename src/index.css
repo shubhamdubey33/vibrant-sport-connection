@@ -97,6 +97,11 @@
   .loading-shimmer {
     @apply animate-pulse bg-muted/50 rounded-md;
   }
+  
+  /* Team logo styles */
+  .team-logo-container {
+    @apply relative w-16 h-16 flex items-center justify-center rounded-full bg-white/10 overflow-hidden;
+  }
 }
 
 @layer utilities {

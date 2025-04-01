@@ -16,9 +16,9 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
     >
-      {/* Enhanced Team Flag - Positioned at the CENTER and OUTSIDE of the card */}
+      {/* Enhanced Team Flag - Positioned to the RIGHT and OUTSIDE of the card */}
       <motion.div 
-        className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute -top-12 right-4 z-20"
         initial={{ rotateZ: 0 }}
       >
         <div className="relative">
@@ -102,25 +102,25 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
                 <img 
                   src="/lovable-uploads/1ee94a74-cd17-45dc-b852-f8bce8e8d327.png" 
                   alt="Knight Vipers Logo" 
-                  className="h-20 object-contain"
+                  className="h-16 w-auto object-contain" 
                 />
               )}
               {team.name === 'Eagle Warriors' && (
                 <img 
                   src="/lovable-uploads/f8c131d7-162c-4560-9031-9e66d52a4e18.png" 
                   alt="Eagle Warriors Logo" 
-                  className="h-20 object-contain"
+                  className="h-16 w-auto object-contain"
                 />
               )}
               {team.name === 'Supreme Spartans' && (
                 <img 
                   src="/lovable-uploads/329f7383-267a-4763-a7f9-26bf5ff45898.png" 
                   alt="Supreme Spartans Logo" 
-                  className="h-20 object-contain"
+                  className="h-16 w-auto object-contain bg-white/20 rounded-full p-1"
                 />
               )}
               {team.name === 'Royal Strikers' && (
-                <span className="text-4xl">{team.logo}</span>
+                <span className="text-4xl bg-white/10 p-2 rounded-full">{team.logo}</span>
               )}
             </div>
           </div>
