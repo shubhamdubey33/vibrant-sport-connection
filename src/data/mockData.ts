@@ -23,6 +23,12 @@ const generalNamesDarkKnights = [
   "Sandeep Mehta", "Raju Sharma", "Alok Mishra", "Ajay Kumar"
 ];
 
+// NEW: Adding General Sports participants for Knight Vipers
+const generalSportsKnightVipers = [
+  "Arjun Mishra", "Pankaj Singh", "Vivek Tiwari", "Saurabh Gupta",
+  "Vishal Kumar", "Kapil Sharma", "Mohan Das", "Akash Verma"
+];
+
 const cricketNamesEagleWarriors = [
   "Girish Bhatt", "Manish Nair", "Rajeev Pillai", "Kamal Nath", 
   "Ajith Kumar", "Sunil Menon", "Varghese Thomas", "Jacob Mathew", 
@@ -43,6 +49,12 @@ const generalNamesEagleWarriors = [
   "Anil Kumar", "Suresh Babu", "Manoj Varma", "Sanjay Nair", 
   "Vijay Menon", "Rajiv Pillai", "Ravi Krishnan", "Prakash Nair", 
   "Deepak Thomas", "Satheesh Kumar"
+];
+
+// NEW: Adding General Sports participants for Eagle Warriors
+const generalSportsEagleWarriors = [
+  "Arun Menon", "Vishnu Pillai", "Jithin Nair", "Rajiv Thomas",
+  "Santhosh Krishnan", "Rahul Das", "Anil Varma", "Sunil Jacob"
 ];
 
 const cricketNamesRoyalStrikers = [
@@ -68,6 +80,12 @@ const generalNamesRoyalStrikers = [
   "Deepak Sinha", "Rajeev Kapoor"
 ];
 
+// NEW: Adding General Sports participants for Royal Strikers
+const generalSportsRoyalStrikers = [
+  "Karan Malhotra", "Siddharth Kapoor", "Rohit Dhawan", "Vikas Sinha",
+  "Nikhil Bhatia", "Anuj Khanna", "Tarun Arora", "Deepak Mehta"
+];
+
 const cricketNamesSupremeSpartans = [
   "Arun Bhandari", "Prashant Chaudhary", "Vikrant Thakur", "Himanshu Saxena", 
   "Rohit Jaiswal", "Sanjay Pandey", "Gaurav Saxena", "Deepak Chauhan", 
@@ -88,6 +106,12 @@ const generalNamesSupremeSpartans = [
   "Ashish Bhandari", "Rajesh Chauhan", "Vinod Thakur", "Anuj Saxena", 
   "Ravi Jaiswal", "Amar Pandey", "Deepak Chauhan", "Siddharth Bhandari", 
   "Rajeev Thakur", "Vikas Chauhan", "Gaurav Jaiswal"
+];
+
+// NEW: Adding General Sports participants for Supreme Spartans
+const generalSportsSupremeSpartans = [
+  "Prashant Saxena", "Vikrant Bhandari", "Himanshu Pandey", "Rohit Chauhan",
+  "Sanjay Thakur", "Gaurav Jaiswal", "Deepak Bhandari", "Vikas Pandey"
 ];
 
 export const teams: TeamData[] = [
@@ -199,6 +223,16 @@ export const participants: Participant[] = [
     avatar: `https://i.pravatar.cc/150?u=bb-general-${i+1}`
   })),
 
+  // NEW: Adding General Sports for Knight Vipers
+  ...generalSportsKnightVipers.map((name, i) => ({
+    id: `kv-gensports-${i+1}`,
+    name: name,
+    team: 'Knight Vipers' as Team,
+    category: 'General' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=kv-gensports-${i+1}`
+  })),
+
   // Eagle Warriors
   ...cricketNamesEagleWarriors.map((name, i) => ({
     id: `ss-cricket-${i+1}`,
@@ -231,6 +265,16 @@ export const participants: Participant[] = [
     team: 'Eagle Warriors' as Team,
     category: 'General' as Category,
     avatar: `https://i.pravatar.cc/150?u=ss-general-${i+1}`
+  })),
+
+  // NEW: Adding General Sports for Eagle Warriors
+  ...generalSportsEagleWarriors.map((name, i) => ({
+    id: `ew-gensports-${i+1}`,
+    name: name,
+    team: 'Eagle Warriors' as Team,
+    category: 'General' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=ew-gensports-${i+1}`
   })),
 
   // Royal Strikers
@@ -267,7 +311,17 @@ export const participants: Participant[] = [
     team: 'Royal Strikers' as Team,
     category: 'General' as Category,
     avatar: `https://i.pravatar.cc/150?u=rs-general-${i+1}`
-  })),  
+  })),
+
+  // NEW: Adding General Sports for Royal Strikers
+  ...generalSportsRoyalStrikers.map((name, i) => ({
+    id: `rs-gensports-${i+1}`,
+    name: name,
+    team: 'Royal Strikers' as Team,
+    category: 'General' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=rs-gensports-${i+1}`
+  })),
 
   // Supreme Spartans
   ...cricketNamesSupremeSpartans.map((name, i) => ({
@@ -303,5 +357,15 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'General' as Category,
     avatar: `https://i.pravatar.cc/150?u=ss-general-${i+1}`
+  })),
+
+  // NEW: Adding General Sports for Supreme Spartans
+  ...generalSportsSupremeSpartans.map((name, i) => ({
+    id: `ss-gensports-${i+1}`,
+    name: name,
+    team: 'Supreme Spartans' as Team,
+    category: 'General' as Category,
+    role: 'Lemon Race Participant',
+    avatar: `https://i.pravatar.cc/150?u=ss-gensports-${i+1}`
   })),
 ];
