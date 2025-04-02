@@ -31,10 +31,19 @@ export interface TeamData {
   };
 }
 
+export interface SubTeamLeader {
+  id: string;
+  name: string;
+  title: string;
+  team: Team;
+  avatar: string;
+}
+
 export interface TeamLeader {
   id: string;
   name: string;
   title: string;
   team: Team;
   avatar: string;
+  subLeaders?: SubTeamLeader[];
 }

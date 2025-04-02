@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Header from "@/components/Header";
@@ -18,35 +17,99 @@ import {
 } from "@/components/CategoryBackgrounds";
 import { LemonRaceBackground } from "@/components/LemonRaceBackground";
 
-// Sample team leaders data with real images
+// Sample team leaders data with real images and sub-leaders
 const teamLeaders = [
   {
     id: "leader-1",
     name: "Sagar Kumar",
     title: "Commentator",
     team: "Royal Strikers" as Team,
-    avatar: "/lovable-uploads/c3465021-9402-4660-82d8-0bd069d8590e.png"
+    avatar: "/lovable-uploads/c3465021-9402-4660-82d8-0bd069d8590e.png",
+    subLeaders: [
+      {
+        id: "sub-leader-1-1",
+        name: "Ankit Singh",
+        title: "Team Coordinator",
+        team: "Royal Strikers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=AS"
+      },
+      {
+        id: "sub-leader-1-2",
+        name: "Priya Sharma",
+        title: "Assistant Lead",
+        team: "Royal Strikers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=PS"
+      }
+    ]
   },
   {
     id: "leader-2",
     name: "Anil Sharma",
     title: "Team Head",
     team: "Knight Vipers" as Team,
-    avatar: "/lovable-uploads/f7ac912f-e65e-41ea-b20f-a13791968c61.png"
+    avatar: "/lovable-uploads/f7ac912f-e65e-41ea-b20f-a13791968c61.png",
+    subLeaders: [
+      {
+        id: "sub-leader-2-1",
+        name: "Rahul Joshi",
+        title: "Deputy Lead",
+        team: "Knight Vipers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=RJ"
+      },
+      {
+        id: "sub-leader-2-2",
+        name: "Meena Gupta",
+        title: "Coordination Head",
+        team: "Knight Vipers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=MG"
+      }
+    ]
   },
   {
     id: "leader-3",
     name: "Nisha Rawat",
     title: "Team Head",
     team: "Royal Strikers" as Team,
-    avatar: "/lovable-uploads/01c86549-0bab-46b0-8e33-20474c183fba.png"
+    avatar: "/lovable-uploads/01c86549-0bab-46b0-8e33-20474c183fba.png",
+    subLeaders: [
+      {
+        id: "sub-leader-3-1",
+        name: "Vikram Patel",
+        title: "Event Manager",
+        team: "Royal Strikers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=VP"
+      },
+      {
+        id: "sub-leader-3-2",
+        name: "Sunita Verma",
+        title: "Logistics Head",
+        team: "Royal Strikers" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=SV"
+      }
+    ]
   },
   {
     id: "leader-4",
     name: "Namrata Tiwari",
     title: "Team Head",
     team: "Eagle Warriors" as Team,
-    avatar: "/lovable-uploads/624ff03d-0c33-40f3-b633-bbc3749d74cf.png"
+    avatar: "/lovable-uploads/624ff03d-0c33-40f3-b633-bbc3749d74cf.png",
+    subLeaders: [
+      {
+        id: "sub-leader-4-1",
+        name: "Rajesh Kumar",
+        title: "Technical Lead",
+        team: "Eagle Warriors" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=RK"
+      },
+      {
+        id: "sub-leader-4-2",
+        name: "Anjali Saxena",
+        title: "Operations Head",
+        team: "Eagle Warriors" as Team,
+        avatar: "https://api.dicebear.com/6.x/initials/svg?seed=AS"
+      }
+    ]
   }
 ];
 
@@ -54,7 +117,6 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredParticipants, setFilteredParticipants] = useState<Participant[]>(participants);
   
-  // Filter participants based on search query
   useEffect(() => {
     if (!searchQuery.trim()) {
       setFilteredParticipants(participants);
@@ -73,7 +135,6 @@ const Index = () => {
     setFilteredParticipants(filtered);
   }, [searchQuery]);
   
-  // Get filtered participants by category
   const getCategoryParticipants = (category: string) => {
     return filteredParticipants.filter(p => p.category === category);
   };
@@ -83,10 +144,8 @@ const Index = () => {
       <Header onSearch={setSearchQuery} />
       <Hero />
       
-      {/* Team Leaders Section */}
       <TeamLeaders leaders={teamLeaders} />
       
-      {/* Teams Section */}
       <section id="teams" className="py-20">
         <div className="container max-w-7xl mx-auto px-4">
           <motion.div
@@ -110,7 +169,6 @@ const Index = () => {
         </div>
       </section>
       
-      {/* Search Results */}
       <AnimatePresence>
         {searchQuery && (
           <motion.section
@@ -179,7 +237,6 @@ const Index = () => {
         )}
       </AnimatePresence>
       
-      {/* Cricket Section */}
       <CategorySection
         id="cricket"
         title="Cricket Tournament"
@@ -190,7 +247,6 @@ const Index = () => {
         defaultTeam="Knight Vipers"
       />
       
-      {/* Tug of War Section */}
       <CategorySection
         id="tugofwar"
         title="Tug of War Challenge"
@@ -201,7 +257,6 @@ const Index = () => {
         backgroundElement={<TugOfWarBackground />}
       />
 
-      {/* Sports Section (Lemon Race) */}
       <CategorySection
         id="sports"
         title="Sports Section"
@@ -212,7 +267,6 @@ const Index = () => {
         backgroundElement={<LemonRaceBackground />}
       />
       
-      {/* Volunteers Section */}
       <CategorySection
         id="volunteers"
         title="Event Volunteers"
@@ -223,7 +277,6 @@ const Index = () => {
         backgroundElement={<VolunteerBackground />}
       />
       
-      {/* General Team Members Section */}
       <CategorySection
         id="general"
         title="Team Members"
@@ -234,10 +287,8 @@ const Index = () => {
         backgroundElement={<GeneralBackground />}
       />
       
-      {/* Schedule Section */}
       <Schedule />
       
-      {/* Footer */}
       <Footer />
     </div>
   );
