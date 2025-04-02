@@ -24,63 +24,110 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
   
   useFrame((state) => {
     if (group.current) {
+      // Subtle breathing animation
+      group.current.position.y = Math.sin(state.clock.getElapsedTime()) * 0.05;
       // Gentle rotation animation
-      group.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.5) * 0.3;
+      group.current.rotation.y = Math.sin(state.clock.getElapsedTime() * 0.3) * 0.2;
     }
   });
 
   return (
     <group ref={group} onClick={onClick} dispose={null}>
-      {/* Player body */}
-      <mesh position={[0, 0, 0]} scale={[1, 1.5, 0.5]}>
+      {/* Torso - more realistic proportions */}
+      <mesh position={[0, 0.2, 0]} scale={[1.2, 1.3, 0.7]}>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#6b7280" /> {/* Gray for body/pants */}
+        <meshStandardMaterial color={teamColors[team]} />
       </mesh>
       
-      {/* Head */}
-      <mesh position={[0, 1, 0]}>
-        <sphereGeometry args={[0.4, 32, 32]} />
-        <meshStandardMaterial color="#f5d0a9" />
+      {/* Neck */}
+      <mesh position={[0, 1.05, 0]} scale={[0.3, 0.3, 0.3]}>
+        <cylinderGeometry args={[1, 1, 1]} />
+        <meshStandardMaterial color="#f3d9b1" />
+      </mesh>
+      
+      {/* Head - more realistic with better shading */}
+      <mesh position={[0, 1.5, 0]}>
+        <sphereGeometry args={[0.5, 32, 32]} />
+        <meshStandardMaterial color="#f3d9b1" roughness={0.7} metalness={0.1} />
         
-        {/* Face features */}
-        <mesh position={[0.2, 0, 0.3]} scale={[0.08, 0.03, 0.08]}>
+        {/* Eyes - more detailed */}
+        <mesh position={[0.2, 0.05, 0.4]} scale={[0.1, 0.1, 0.1]}>
           <sphereGeometry args={[1, 16, 16]} />
-          <meshBasicMaterial color="#000000" />
+          <meshStandardMaterial color="#ffffff" />
+          <mesh position={[0, 0, 0.5]} scale={[0.6, 0.6, 0.6]}>
+            <sphereGeometry args={[1, 16, 16]} />
+            <meshBasicMaterial color="#3a3a3a" />
+            <mesh position={[0, 0, 0.2]} scale={[0.3, 0.3, 0.3]}>
+              <sphereGeometry args={[1, 16, 16]} />
+              <meshBasicMaterial color="#000000" />
+            </mesh>
+          </mesh>
         </mesh>
-        <mesh position={[-0.2, 0, 0.3]} scale={[0.08, 0.03, 0.08]}>
+        
+        <mesh position={[-0.2, 0.05, 0.4]} scale={[0.1, 0.1, 0.1]}>
           <sphereGeometry args={[1, 16, 16]} />
-          <meshBasicMaterial color="#000000" />
+          <meshStandardMaterial color="#ffffff" />
+          <mesh position={[0, 0, 0.5]} scale={[0.6, 0.6, 0.6]}>
+            <sphereGeometry args={[1, 16, 16]} />
+            <meshBasicMaterial color="#3a3a3a" />
+            <mesh position={[0, 0, 0.2]} scale={[0.3, 0.3, 0.3]}>
+              <sphereGeometry args={[1, 16, 16]} />
+              <meshBasicMaterial color="#000000" />
+            </mesh>
+          </mesh>
         </mesh>
-        <mesh position={[0, -0.15, 0.3]} scale={[0.15, 0.05, 0.05]}>
+        
+        {/* Mouth */}
+        <mesh position={[0, -0.2, 0.4]} scale={[0.2, 0.05, 0.05]}>
           <boxGeometry args={[1, 1, 1]} />
-          <meshBasicMaterial color="#c53030" />
+          <meshStandardMaterial color="#c53030" />
+        </mesh>
+        
+        {/* Eyebrows */}
+        <mesh position={[0.2, 0.2, 0.42]} rotation={[0, 0, 0.2]} scale={[0.15, 0.03, 0.02]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#5a3825" />
+        </mesh>
+        <mesh position={[-0.2, 0.2, 0.42]} rotation={[0, 0, -0.2]} scale={[0.15, 0.03, 0.02]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#5a3825" />
         </mesh>
       </mesh>
       
-      {/* Arms */}
-      <mesh position={[0.7, 0.2, 0]} rotation={[0, 0, -0.3]} scale={[0.3, 0.8, 0.3]}>
-        <boxGeometry args={[1, 1, 1]} />
+      {/* Shoulders - wider and more defined */}
+      <mesh position={[0.7, 0.4, 0]} rotation={[0, 0, -0.3]} scale={[0.3, 0.3, 0.3]}>
+        <sphereGeometry args={[1, 16, 16]} />
         <meshStandardMaterial color={teamColors[team]} />
       </mesh>
-      <mesh position={[-0.7, 0.2, 0]} rotation={[0, 0, 0.3]} scale={[0.3, 0.8, 0.3]}>
-        <boxGeometry args={[1, 1, 1]} />
+      <mesh position={[-0.7, 0.4, 0]} rotation={[0, 0, 0.3]} scale={[0.3, 0.3, 0.3]}>
+        <sphereGeometry args={[1, 16, 16]} />
         <meshStandardMaterial color={teamColors[team]} />
       </mesh>
       
-      {/* Legs */}
-      <mesh position={[0.3, -1, 0]} scale={[0.4, 0.8, 0.4]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#374151" /> {/* Dark gray for pants */}
+      {/* Arms - more defined with proper bend */}
+      <mesh position={[0.9, 0.1, 0]} rotation={[0, 0, -0.5]} scale={[0.25, 0.6, 0.25]}>
+        <cylinderGeometry args={[1, 0.8, 1, 16]} />
+        <meshStandardMaterial color="#f3d9b1" />
       </mesh>
-      <mesh position={[-0.3, -1, 0]} scale={[0.4, 0.8, 0.4]}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#374151" /> {/* Dark gray for pants */}
+      <mesh position={[-0.9, 0.1, 0]} rotation={[0, 0, 0.5]} scale={[0.25, 0.6, 0.25]}>
+        <cylinderGeometry args={[1, 0.8, 1, 16]} />
+        <meshStandardMaterial color="#f3d9b1" />
       </mesh>
       
-      {/* Team shirt with logo */}
-      <mesh position={[0, 0.2, 0.3]} scale={[0.9, 0.7, 0.2]}>
+      {/* Hands */}
+      <mesh position={[1.1, -0.3, 0]} rotation={[0, 0, -0.3]} scale={[0.2, 0.2, 0.2]}>
+        <sphereGeometry args={[1, 16, 16]} />
+        <meshStandardMaterial color="#f3d9b1" />
+      </mesh>
+      <mesh position={[-1.1, -0.3, 0]} rotation={[0, 0, 0.3]} scale={[0.2, 0.2, 0.2]}>
+        <sphereGeometry args={[1, 16, 16]} />
+        <meshStandardMaterial color="#f3d9b1" />
+      </mesh>
+      
+      {/* Company logo on chest */}
+      <mesh position={[0, 0.3, 0.4]} scale={[0.9, 0.7, 0.1]}>
         <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color={teamColors[team]} />
+        <meshStandardMaterial color={teamColors[team]} roughness={0.9} />
         <Html position={[0, 0, 0.6]} transform distanceFactor={10} className="flex items-center justify-center">
           {team === 'Royal Strikers' ? (
             <div className="text-white text-xl font-bold">⚙️</div>
@@ -88,18 +135,18 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
             <img 
               src={teamLogos[team]} 
               alt={`${team} logo`} 
-              className="w-8 h-8 object-contain"
+              className="w-10 h-10 object-contain"
             />
           )}
         </Html>
       </mesh>
 
       {/* Team number on back */}
-      <mesh position={[0, 0.2, -0.3]} scale={[0.9, 0.7, 0.01]}>
+      <mesh position={[0, 0.3, -0.4]} scale={[0.9, 0.7, 0.01]}>
         <planeGeometry args={[1, 1]} />
-        <meshStandardMaterial color={teamColors[team]} />
+        <meshStandardMaterial color={teamColors[team]} roughness={0.9} />
         <Html position={[0, 0, 0.1]} transform distanceFactor={10}>
-          <div className="text-white text-lg font-bold" style={{ textShadow: '1px 1px 1px black' }}>
+          <div className="text-white text-xl font-bold" style={{ textShadow: '1px 1px 1px black' }}>
             {Math.floor(Math.random() * 99) + 1}
           </div>
         </Html>
@@ -140,9 +187,10 @@ const TeamMember3D = ({ participant, onSelect, className }: TeamMember3DProps) =
         camera={{ position: [0, 0, 5], fov: 40 }}
         gl={{ preserveDrawingBuffer: true }}
       >
-        <ambientLight intensity={0.7} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
-        <pointLight position={[-10, -10, -10]} intensity={0.5} />
+        <ambientLight intensity={0.8} />
+        <spotLight position={[5, 10, 10]} angle={0.2} penumbra={1} intensity={1.5} castShadow />
+        <spotLight position={[-5, 10, 10]} angle={0.2} penumbra={1} intensity={0.5} castShadow />
+        <pointLight position={[0, 0, 5]} intensity={0.6} />
         <Model team={participant.team} onClick={handleSelect} />
         <OrbitControls 
           enableZoom={false} 
