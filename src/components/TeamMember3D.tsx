@@ -1,7 +1,7 @@
 
 import { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls, useGLTF, Html } from '@react-three/drei';
+import { OrbitControls, Html } from '@react-three/drei';
 import { Participant, Team } from '@/types';
 import { motion } from 'framer-motion';
 
@@ -13,10 +13,7 @@ const teamColors = {
 };
 
 function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
-  const group = useRef();
-  // Default model path - you'd need to create or find appropriate 3D models
-  // This is a placeholder
-  const { scene } = useGLTF('/placeholder.svg');
+  const group = useRef<THREE.Group>(null);
   
   useFrame((state) => {
     if (group.current) {
