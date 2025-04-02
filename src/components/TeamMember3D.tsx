@@ -19,8 +19,55 @@ const teamLogos = {
   'Supreme Spartans': '/lovable-uploads/329f7383-267a-4763-a7f9-26bf5ff45898.png',
 };
 
-function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
+// Facial expressions for different participants
+const getFaceExpression = (id: string) => {
+  // Use the participant's ID to derive a consistent expression
+  const idSum = id.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  const expressionType = idSum % 5; // 5 different expression types
+  
+  switch (expressionType) {
+    case 0: // Happy
+      return {
+        mouthType: 'smile',
+        eyebrowsAngle: 0.1, // Slightly raised
+        eyesWide: 1.1,      // Slightly wider eyes
+      };
+    case 1: // Determined
+      return {
+        mouthType: 'straight',
+        eyebrowsAngle: -0.2, // Angled down (focused)
+        eyesWide: 0.9,       // Slightly narrowed
+      };
+    case 2: // Surprised
+      return {
+        mouthType: 'o',
+        eyebrowsAngle: 0.3,  // Raised high
+        eyesWide: 1.3,       // Wide open
+      };
+    case 3: // Serious
+      return {
+        mouthType: 'straight',
+        eyebrowsAngle: -0.1, // Slightly angled down
+        eyesWide: 1.0,       // Normal
+      };
+    case 4: // Amused
+      return {
+        mouthType: 'smirk',
+        eyebrowsAngle: 0.2,  // One raised, one normal
+        eyesWide: 1.05,      // Slightly wide
+      };
+    default:
+      return {
+        mouthType: 'smile',
+        eyebrowsAngle: 0,
+        eyesWide: 1,
+      };
+  }
+};
+
+function Model({ team, participantId, onClick }: { team: Team; participantId: string; onClick?: () => void }) {
   const group = useRef<THREE.Group>(null);
+  const expression = getFaceExpression(participantId);
   
   useFrame((state) => {
     if (group.current) {
@@ -31,6 +78,20 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
     }
   });
 
+  // Get unique jersey number based on ID
+  const getJerseyNumber = () => {
+    return (participantId.charCodeAt(0) + participantId.charCodeAt(participantId.length - 1)) % 99 + 1;
+  };
+
+  // Different skin tones based on ID
+  const getSkinTone = () => {
+    const tones = ['#f3d9b1', '#ffe0bd', '#d8b38b', '#bb9167', '#8d5524'];
+    const toneIndex = participantId.charCodeAt(0) % tones.length;
+    return tones[toneIndex];
+  };
+
+  const skinTone = getSkinTone();
+
   return (
     <group ref={group} onClick={onClick} dispose={null}>
       {/* Torso - more realistic proportions */}
@@ -39,19 +100,19 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
         <meshStandardMaterial color={teamColors[team]} />
       </mesh>
       
-      {/* Neck */}
+      {/* Neck - better connected to head */}
       <mesh position={[0, 1.05, 0]} scale={[0.3, 0.3, 0.3]}>
         <cylinderGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="#f3d9b1" />
+        <meshStandardMaterial color={skinTone} />
       </mesh>
       
-      {/* Head - more realistic with better shading */}
-      <mesh position={[0, 1.5, 0]}>
+      {/* Head - position fixed to connect well with neck */}
+      <mesh position={[0, 1.6, 0]}>
         <sphereGeometry args={[0.5, 32, 32]} />
-        <meshStandardMaterial color="#f3d9b1" roughness={0.7} metalness={0.1} />
+        <meshStandardMaterial color={skinTone} roughness={0.7} metalness={0.1} />
         
-        {/* Eyes - more detailed */}
-        <mesh position={[0.2, 0.05, 0.4]} scale={[0.1, 0.1, 0.1]}>
+        {/* Eyes with expression */}
+        <mesh position={[0.2, 0.05, 0.4]} scale={[0.1, 0.1 * expression.eyesWide, 0.1]}>
           <sphereGeometry args={[1, 16, 16]} />
           <meshStandardMaterial color="#ffffff" />
           <mesh position={[0, 0, 0.5]} scale={[0.6, 0.6, 0.6]}>
@@ -64,7 +125,7 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
           </mesh>
         </mesh>
         
-        <mesh position={[-0.2, 0.05, 0.4]} scale={[0.1, 0.1, 0.1]}>
+        <mesh position={[-0.2, 0.05, 0.4]} scale={[0.1, 0.1 * expression.eyesWide, 0.1]}>
           <sphereGeometry args={[1, 16, 16]} />
           <meshStandardMaterial color="#ffffff" />
           <mesh position={[0, 0, 0.5]} scale={[0.6, 0.6, 0.6]}>
@@ -77,21 +138,58 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
           </mesh>
         </mesh>
         
-        {/* Mouth */}
-        <mesh position={[0, -0.2, 0.4]} scale={[0.2, 0.05, 0.05]}>
+        {/* Mouth with different expressions */}
+        {expression.mouthType === 'smile' && (
+          <mesh position={[0, -0.2, 0.4]} scale={[0.25, 0.08, 0.05]} rotation={[0.2, 0, 0]}>
+            <torusGeometry args={[1, 0.3, 16, 16, Math.PI]} />
+            <meshStandardMaterial color="#c53030" />
+          </mesh>
+        )}
+        {expression.mouthType === 'straight' && (
+          <mesh position={[0, -0.2, 0.4]} scale={[0.2, 0.04, 0.05]}>
+            <boxGeometry args={[1, 1, 1]} />
+            <meshStandardMaterial color="#c53030" />
+          </mesh>
+        )}
+        {expression.mouthType === 'o' && (
+          <mesh position={[0, -0.2, 0.4]} scale={[0.12, 0.12, 0.05]}>
+            <torusGeometry args={[0.5, 0.5, 16, 16]} />
+            <meshStandardMaterial color="#c53030" />
+          </mesh>
+        )}
+        {expression.mouthType === 'smirk' && (
+          <group position={[0, -0.2, 0.4]}>
+            <mesh position={[0.1, 0, 0]} scale={[0.15, 0.05, 0.05]} rotation={[0, 0, 0.2]}>
+              <boxGeometry args={[1, 1, 1]} />
+              <meshStandardMaterial color="#c53030" />
+            </mesh>
+            <mesh position={[-0.1, 0, 0]} scale={[0.15, 0.03, 0.05]} rotation={[0, 0, 0]}>
+              <boxGeometry args={[1, 1, 1]} />
+              <meshStandardMaterial color="#c53030" />
+            </mesh>
+          </group>
+        )}
+        
+        {/* Eyebrows with expression-based angle */}
+        <mesh position={[0.2, 0.2, 0.42]} rotation={[0, 0, expression.eyebrowsAngle]} scale={[0.15, 0.03, 0.02]}>
           <boxGeometry args={[1, 1, 1]} />
-          <meshStandardMaterial color="#c53030" />
+          <meshBasicMaterial color="#5a3825" />
+        </mesh>
+        <mesh position={[-0.2, 0.2, 0.42]} rotation={[0, 0, -expression.eyebrowsAngle]} scale={[0.15, 0.03, 0.02]}>
+          <boxGeometry args={[1, 1, 1]} />
+          <meshBasicMaterial color="#5a3825" />
         </mesh>
         
-        {/* Eyebrows */}
-        <mesh position={[0.2, 0.2, 0.42]} rotation={[0, 0, 0.2]} scale={[0.15, 0.03, 0.02]}>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshBasicMaterial color="#5a3825" />
-        </mesh>
-        <mesh position={[-0.2, 0.2, 0.42]} rotation={[0, 0, -0.2]} scale={[0.15, 0.03, 0.02]}>
-          <boxGeometry args={[1, 1, 1]} />
-          <meshBasicMaterial color="#5a3825" />
-        </mesh>
+        {/* Simple hair based on ID */}
+        {participantId.charCodeAt(1) % 3 === 0 && (
+          <mesh position={[0, 0.4, 0]} scale={[0.52, 0.2, 0.52]}>
+            <sphereGeometry args={[1, 16, 16]} />
+            <meshStandardMaterial 
+              color={['#2d2926', '#4b3621', '#826644'][participantId.charCodeAt(2) % 3]} 
+              roughness={1}
+            />
+          </mesh>
+        )}
       </mesh>
       
       {/* Shoulders - wider and more defined */}
@@ -107,21 +205,21 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
       {/* Arms - more defined with proper bend */}
       <mesh position={[0.9, 0.1, 0]} rotation={[0, 0, -0.5]} scale={[0.25, 0.6, 0.25]}>
         <cylinderGeometry args={[1, 0.8, 1, 16]} />
-        <meshStandardMaterial color="#f3d9b1" />
+        <meshStandardMaterial color={skinTone} />
       </mesh>
       <mesh position={[-0.9, 0.1, 0]} rotation={[0, 0, 0.5]} scale={[0.25, 0.6, 0.25]}>
         <cylinderGeometry args={[1, 0.8, 1, 16]} />
-        <meshStandardMaterial color="#f3d9b1" />
+        <meshStandardMaterial color={skinTone} />
       </mesh>
       
       {/* Hands */}
       <mesh position={[1.1, -0.3, 0]} rotation={[0, 0, -0.3]} scale={[0.2, 0.2, 0.2]}>
         <sphereGeometry args={[1, 16, 16]} />
-        <meshStandardMaterial color="#f3d9b1" />
+        <meshStandardMaterial color={skinTone} />
       </mesh>
       <mesh position={[-1.1, -0.3, 0]} rotation={[0, 0, 0.3]} scale={[0.2, 0.2, 0.2]}>
         <sphereGeometry args={[1, 16, 16]} />
-        <meshStandardMaterial color="#f3d9b1" />
+        <meshStandardMaterial color={skinTone} />
       </mesh>
       
       {/* Company logo on chest */}
@@ -141,13 +239,13 @@ function Model({ team, onClick }: { team: Team; onClick?: () => void }) {
         </Html>
       </mesh>
 
-      {/* Team number on back */}
+      {/* Team number on back - using participant ID to generate unique number */}
       <mesh position={[0, 0.3, -0.4]} scale={[0.9, 0.7, 0.01]}>
         <planeGeometry args={[1, 1]} />
         <meshStandardMaterial color={teamColors[team]} roughness={0.9} />
         <Html position={[0, 0, 0.1]} transform distanceFactor={10}>
           <div className="text-white text-xl font-bold" style={{ textShadow: '1px 1px 1px black' }}>
-            {Math.floor(Math.random() * 99) + 1}
+            {getJerseyNumber()}
           </div>
         </Html>
       </mesh>
@@ -191,7 +289,7 @@ const TeamMember3D = ({ participant, onSelect, className }: TeamMember3DProps) =
         <spotLight position={[5, 10, 10]} angle={0.2} penumbra={1} intensity={1.5} castShadow />
         <spotLight position={[-5, 10, 10]} angle={0.2} penumbra={1} intensity={0.5} castShadow />
         <pointLight position={[0, 0, 5]} intensity={0.6} />
-        <Model team={participant.team} onClick={handleSelect} />
+        <Model team={participant.team} participantId={participant.id} onClick={handleSelect} />
         <OrbitControls 
           enableZoom={false} 
           enablePan={false}
