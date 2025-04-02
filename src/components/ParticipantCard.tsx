@@ -2,14 +2,19 @@
 import { motion } from "framer-motion";
 import { Participant, Team } from "@/types";
 import { cn } from "@/lib/utils";
+import { useState } from "react";
+import TeamMember3D from "./TeamMember3D";
 
 interface ParticipantCardProps {
   participant: Participant;
   index: number;
   delay?: number;
+  show3D?: boolean;
 }
 
-const ParticipantCard = ({ participant, index, delay = 0 }: ParticipantCardProps) => {
+const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: ParticipantCardProps) => {
+  const [showDetails, setShowDetails] = useState(false);
+
   const getCategoryColor = () => {
     switch(participant.category) {
       case 'Cricket':
@@ -77,12 +82,34 @@ const ParticipantCard = ({ participant, index, delay = 0 }: ParticipantCardProps
         </div>
       </div>
       
+      {show3D && (
+        <div className="mt-3 bg-gray-50 rounded-md overflow-hidden">
+          <TeamMember3D participant={participant} />
+        </div>
+      )}
+      
       <div className="mt-2 flex justify-between items-center">
         <div className="text-xs text-gray-500">{participant.team}</div>
         <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-          <button className="text-xs text-primary hover:underline">View Profile</button>
+          <button 
+            className="text-xs text-primary hover:underline"
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            {showDetails ? "Hide 3D" : "Show 3D"}
+          </button>
         </div>
       </div>
+      
+      {showDetails && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="mt-3 pt-3 border-t border-gray-100"
+        >
+          <TeamMember3D participant={participant} className="h-48" />
+        </motion.div>
+      )}
     </motion.div>
   );
 };

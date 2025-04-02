@@ -12,6 +12,10 @@ export interface Participant {
   avatar?: string;
   stats?: Record<string, any>;
   isLeader?: boolean;
+  model3d?: {
+    pose: 'standing' | 'action' | 'casual';
+    emotion: 'neutral' | 'happy' | 'serious';
+  };
 }
 
 export interface TeamData {
@@ -29,6 +33,8 @@ export interface TeamData {
     volunteers: number;
     general: number;
   };
+  shirtColor?: string;
+  modelPath?: string;
 }
 
 export interface SubTeamLeader {
