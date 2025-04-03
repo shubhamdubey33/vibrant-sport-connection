@@ -6,6 +6,7 @@ import ParticipantCard from "../ParticipantCard";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "@/components/ui/pagination";
 
 interface CategoryTeamTabsProps {
@@ -57,12 +58,14 @@ const CategoryTeamTabs = ({ participants, defaultTeam }: CategoryTeamTabsProps) 
       className="w-full"
       onValueChange={handleTabChange}
     >
-      <TabsList className="mb-6 md:mb-8 bg-white/50 backdrop-blur-sm overflow-x-auto flex w-full no-scrollbar">
-        <TabsTrigger className="whitespace-nowrap" value="all">All Teams</TabsTrigger>
-        {teams.map((team) => (
-          <TabsTrigger className="whitespace-nowrap" key={team} value={team}>{team}</TabsTrigger>
-        ))}
-      </TabsList>
+      <div className="relative overflow-x-auto pb-2">
+        <TabsList className="mb-6 md:mb-8 bg-white/50 backdrop-blur-sm flex w-full no-scrollbar">
+          <TabsTrigger className="whitespace-nowrap" value="all">All Teams</TabsTrigger>
+          {teams.map((team) => (
+            <TabsTrigger className="whitespace-nowrap" key={team} value={team}>{team}</TabsTrigger>
+          ))}
+        </TabsList>
+      </div>
 
       <TabsContent value="all" className="mt-0">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
@@ -140,25 +143,29 @@ const RenderPagination = ({ currentPage, totalPages, setCurrentPage, totalItems,
   // Simplified pagination for mobile
   const renderMobilePagination = () => (
     <div className="flex items-center justify-between mt-4 px-2">
-      <button
+      <Button
         onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className="p-2 text-primary disabled:text-gray-300"
+        variant="ghost"
+        size="sm"
+        className="p-1 text-primary"
       >
         <ChevronLeft size={20} />
-      </button>
+      </Button>
       
       <span className="text-sm text-gray-600">
         Page {currentPage} of {totalPages}
       </span>
       
-      <button
+      <Button
         onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className="p-2 text-primary disabled:text-gray-300"
+        variant="ghost"
+        size="sm"
+        className="p-1 text-primary"
       >
         <ChevronRight size={20} />
-      </button>
+      </Button>
     </div>
   );
 
@@ -167,14 +174,16 @@ const RenderPagination = ({ currentPage, totalPages, setCurrentPage, totalItems,
     <Pagination className="mt-6">
       <PaginationContent>
         <PaginationItem>
-          <PaginationLink
+          <Button
             onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
+            variant="ghost"
+            size="icon"
             className="cursor-pointer"
           >
-            <ChevronLeft className="h-4 w-4 mr-2" />
-            Previous
-          </PaginationLink>
+            <ChevronLeft className="h-4 w-4" />
+            <span className="sr-only">Previous Page</span>
+          </Button>
         </PaginationItem>
         
         {getPageNumbers().map((page, index) => (
@@ -194,14 +203,16 @@ const RenderPagination = ({ currentPage, totalPages, setCurrentPage, totalItems,
         ))}
         
         <PaginationItem>
-          <PaginationLink
+          <Button
             onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
+            variant="ghost"
+            size="icon"
             className="cursor-pointer"
           >
-            Next
-            <ChevronRight className="h-4 w-4 ml-2" />
-          </PaginationLink>
+            <ChevronRight className="h-4 w-4" />
+            <span className="sr-only">Next Page</span>
+          </Button>
         </PaginationItem>
       </PaginationContent>
     </Pagination>
@@ -211,7 +222,7 @@ const RenderPagination = ({ currentPage, totalPages, setCurrentPage, totalItems,
     <div className="mt-4">
       <div className="text-center text-sm text-gray-500 mb-2">
         Showing {(currentPage - 1) * (isMobile ? 4 : 8) + 1} to{" "}
-        {Math.min(currentPage * (isMobile ? a4 : 8), totalItems)} of {totalItems} participants
+        {Math.min(currentPage * (isMobile ? 4 : 8), totalItems)} of {totalItems} participants
       </div>
       
       {isMobile ? renderMobilePagination() : renderDesktopPagination()}

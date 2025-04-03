@@ -112,6 +112,15 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+
+  /* Tabs overrides for mobile */
+  .tabs-container {
+    @apply relative w-full overflow-hidden;
+  }
+  
+  .tabs-scroll {
+    @apply overflow-x-auto flex pb-2 no-scrollbar;
+  }
 }
 
 @layer utilities {
@@ -137,5 +146,19 @@
   
   .animate-delay-500 {
     animation-delay: 500ms;
+  }
+
+  /* Image optimization utilities */
+  .img-optimize {
+    @apply will-change-transform;
+    content-visibility: auto;
+  }
+  
+  .lazy-load {
+    @apply opacity-0 transition-opacity duration-300;
+  }
+  
+  .lazy-loaded {
+    @apply opacity-100;
   }
 }

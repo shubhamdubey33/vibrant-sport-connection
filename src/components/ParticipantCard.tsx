@@ -2,7 +2,7 @@
 import { motion } from "framer-motion";
 import { Participant, Team } from "@/types";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TeamMember3D from "./TeamMember3D";
 
 interface ParticipantCardProps {
@@ -14,6 +14,12 @@ interface ParticipantCardProps {
 
 const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: ParticipantCardProps) => {
   const [showDetails, setShowDetails] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Optimize image loading
+  const handleImageLoaded = () => {
+    setImageLoaded(true);
+  };
 
   const getCategoryColor = () => {
     switch(participant.category) {
@@ -47,6 +53,9 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
     }
   };
 
+  // Determine avatar source with fallback
+  const avatarSrc = participant.avatar || `https://api.dicebear.com/6.x/initials/svg?seed=${participant.name}`;
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -59,13 +68,19 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
       )}
     >
       <div className="flex items-center gap-3">
-        {/* Avatar */}
-        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm">
+        {/* Avatar with loading state */}
+        <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-sm bg-gray-100">
+          <div className={!imageLoaded ? "absolute inset-0 animate-pulse bg-gray-200 rounded-full" : "hidden"} />
           <img 
-            src={participant.avatar || `https://api.dicebear.com/6.x/initials/svg?seed=${participant.name}`} 
+            src={avatarSrc}
             alt={participant.name}
-            className="w-full h-full object-cover"
+            className={cn(
+              "w-full h-full object-cover img-optimize",
+              imageLoaded ? "lazy-loaded" : "lazy-load"
+            )}
             loading="lazy"
+            onLoad={handleImageLoaded}
+            onError={handleImageLoaded} // Also mark as loaded on error to remove loading state
           />
         </div>
         
