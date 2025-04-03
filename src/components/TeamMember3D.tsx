@@ -289,7 +289,12 @@ const TeamMember3D = ({ participant, onSelect, className }: TeamMember3DProps) =
         <spotLight position={[5, 10, 10]} angle={0.2} penumbra={1} intensity={1.5} castShadow />
         <spotLight position={[-5, 10, 10]} angle={0.2} penumbra={1} intensity={0.5} castShadow />
         <pointLight position={[0, 0, 5]} intensity={0.6} />
-        <Model team={participant.team} participantId={participant.id} onClick={handleSelect} />
+        
+        {/* Position the model lower to ensure head isn't cut off */}
+        <group position={[0, -0.5, 0]}>
+          <Model team={participant.team} participantId={participant.id} onClick={handleSelect} />
+        </group>
+        
         <OrbitControls 
           enableZoom={false} 
           enablePan={false}

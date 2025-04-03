@@ -120,7 +120,7 @@ export const participants: Participant[] = [
     team: 'Knight Vipers' as Team,
     category: 'Cricket' as Category,
     role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
-    avatar: `https://i.pravatar.cc/150?u=kv-cricket-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   ...tugOfWarNamesKnightVipers.map((name, i) => ({
@@ -129,7 +129,7 @@ export const participants: Participant[] = [
     team: 'Knight Vipers' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',
-    avatar: `https://i.pravatar.cc/150?u=kv-tug-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   ...volunteerNamesKnightVipers.map((name, i) => ({
@@ -138,7 +138,7 @@ export const participants: Participant[] = [
     team: 'Knight Vipers' as Team,
     category: 'Volunteer' as Category,
     role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics'][i],
-    avatar: `https://i.pravatar.cc/150?u=kv-volunteer-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...SportsKnightVipers.map((name, i) => ({
@@ -147,7 +147,7 @@ export const participants: Participant[] = [
     team: 'Knight Vipers' as Team,
     category: 'Sports' as Category,
     role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=kv-sports-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...generalNamesKnightVipers.map((name, i) => ({
@@ -155,7 +155,7 @@ export const participants: Participant[] = [
     name: name,
     team: 'Knight Vipers' as Team,
     category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=kv-general-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   // Eagle Warriors
@@ -165,7 +165,7 @@ export const participants: Participant[] = [
     team: 'Eagle Warriors' as Team,
     category: 'Cricket' as Category,
     role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
-    avatar: `https://i.pravatar.cc/150?u=ew-cricket-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   ...tugOfWarNamesEagleWarriors.map((name, i) => ({
@@ -174,7 +174,7 @@ export const participants: Participant[] = [
     team: 'Eagle Warriors' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',
-    avatar: `https://i.pravatar.cc/150?u=ew-tug-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...volunteerNamesEagleWarriors.map((name, i) => ({
@@ -183,7 +183,7 @@ export const participants: Participant[] = [
     team: 'Eagle Warriors' as Team,
     category: 'Volunteer' as Category,
     role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Announcer'][i % 5],
-    avatar: `https://i.pravatar.cc/150?u=ew-volunteer-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...SportsEagleWarriors.map((name, i) => ({
@@ -192,7 +192,7 @@ export const participants: Participant[] = [
     team: 'Eagle Warriors' as Team,
     category: 'Sports' as Category,
     role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=ew-sports-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...generalNamesEagleWarriors.map((name, i) => ({
@@ -200,7 +200,7 @@ export const participants: Participant[] = [
     name: name,
     team: 'Eagle Warriors' as Team,
     category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=ew-general-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   // Royal Strikers
@@ -210,7 +210,7 @@ export const participants: Participant[] = [
     team: 'Royal Strikers' as Team,
     category: 'Cricket' as Category,
     role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
-    avatar: `https://i.pravatar.cc/150?u=rs-cricket-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...tugOfWarNamesRoyalStrikers.map((name, i) => ({
@@ -219,7 +219,7 @@ export const participants: Participant[] = [
     team: 'Royal Strikers' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',
-    avatar: `https://i.pravatar.cc/150?u=rs-tug-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...volunteerNamesRoyalStrikers.map((name, i) => ({
@@ -228,7 +228,7 @@ export const participants: Participant[] = [
     team: 'Royal Strikers' as Team,
     category: 'Volunteer' as Category,
     role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Announcer'][i],
-    avatar: `https://i.pravatar.cc/150?u=rs-volunteer-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...SportsRoyalStrikers.map((name, i) => ({
@@ -237,7 +237,7 @@ export const participants: Participant[] = [
     team: 'Royal Strikers' as Team,
     category: 'Sports' as Category,
     role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=rs-sports-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...generalNamesRoyalStrikers.map((name, i) => ({
@@ -245,7 +245,7 @@ export const participants: Participant[] = [
     name: name,
     team: 'Royal Strikers' as Team,
     category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=rs-general-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 
   // Supreme Spartans
@@ -255,7 +255,7 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'Cricket' as Category,
     role: i === 0 ? 'Captain' : (i === 1 ? 'Vice Captain' : cricketRoles[i > 1 ? i-1 : i] as 'Captain' | 'Batsman' | 'Bowler' | 'All-rounder'),
-    avatar: `https://i.pravatar.cc/150?u=ss-cricket-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...tugOfWarNamesSupremeSpartans.map((name, i) => ({
@@ -264,7 +264,7 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'Tug of War' as Category,
     role: i === 0 ? 'Anchor' : 'Puller',  
-    avatar: `https://i.pravatar.cc/150?u=ss-tug-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...volunteerNamesSupremeSpartans.map((name, i) => ({
@@ -273,7 +273,7 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'Volunteer' as Category,
     role: ['Coordinator', 'Assistant', 'Support Staff', 'Logistics', 'Photographer', 'Social Media'][i],
-    avatar: `https://i.pravatar.cc/150?u=ss-volunteer-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...SportsSupremeSpartans.map((name, i) => ({
@@ -282,7 +282,7 @@ export const participants: Participant[] = [
     team: 'Supreme Spartans' as Team,
     category: 'Sports' as Category,
     role: 'Lemon Race Participant',
-    avatar: `https://i.pravatar.cc/150?u=ss-sports-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
   
   ...generalNamesSupremeSpartans.map((name, i) => ({
@@ -290,6 +290,6 @@ export const participants: Participant[] = [
     name: name, 
     team: 'Supreme Spartans' as Team,
     category: 'General' as Category,
-    avatar: `https://i.pravatar.cc/150?u=ss-general-${i+1}`
+    // No avatar provided - will use generated one from participant card
   })),
 ];

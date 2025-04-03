@@ -53,8 +53,27 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
     }
   };
 
-  // Determine avatar source with fallback
-  const avatarSrc = participant.avatar || `https://api.dicebear.com/6.x/initials/svg?seed=${participant.name}`;
+  // Generate a deterministic but random avatar
+  const getAvatarUrl = () => {
+    // Options for avatar styles
+    const styles = ['adventurer', 'adventurer-neutral', 'avataaars', 'big-ears', 'big-ears-neutral', 
+                    'big-smile', 'bottts', 'croodles', 'croodles-neutral', 'fun-emoji', 
+                    'icons', 'identicon', 'initials', 'lorelei', 'lorelei-neutral', 
+                    'micah', 'miniavs', 'open-peeps', 'personas', 'pixel-art', 
+                    'pixel-art-neutral'];
+    
+    // Use participant ID to get a consistent style for each participant
+    const styleIndex = participant.id.charCodeAt(0) % styles.length;
+    const style = styles[styleIndex];
+    
+    // Generate a seed based on participant name for consistency
+    const seed = encodeURIComponent(participant.name);
+    
+    return `https://api.dicebear.com/6.x/${style}/svg?seed=${seed}`;
+  };
+
+  // Determine avatar source with built-in generator
+  const avatarSrc = getAvatarUrl();
 
   return (
     <motion.div
@@ -122,7 +141,7 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
           exit={{ opacity: 0, height: 0 }}
           className="mt-3 pt-3 border-t border-gray-100"
         >
-          <TeamMember3D participant={participant} className="h-48" />
+          <TeamMember3D participant={participant} className="h-56" />
         </motion.div>
       )}
     </motion.div>
