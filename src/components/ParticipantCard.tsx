@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Participant, Team } from "@/types";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
-import TeamMember3D from "./TeamMember3D";
+import ExpressionAvatar from "./ExpressionAvatar";
 
 interface ParticipantCardProps {
   participant: Participant;
@@ -55,14 +55,8 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
 
   // Generate a deterministic but random avatar
   const getAvatarUrl = () => {
-    // Options for avatar styles
-    const styles = ['adventurer', 'adventurer-neutral', 'avataaars', 'big-ears', 'big-ears-neutral', 
-                    'big-smile', 'bottts', 'croodles', 'croodles-neutral', 'fun-emoji', 
-                    'icons', 'identicon', 'initials', 'lorelei', 'lorelei-neutral', 
-                    'micah', 'miniavs', 'open-peeps', 'personas', 'pixel-art', 
-                    'pixel-art-neutral'];
-    
     // Use participant ID to get a consistent style for each participant
+    const styles = ['personas', 'bottts', 'avataaars', 'micah', 'open-peeps', 'pixel-art'];
     const styleIndex = participant.id.charCodeAt(0) % styles.length;
     const style = styles[styleIndex];
     
@@ -118,7 +112,7 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
       
       {show3D && (
         <div className="mt-3 bg-gray-50 rounded-md overflow-hidden">
-          <TeamMember3D participant={participant} />
+          <ExpressionAvatar participant={participant} />
         </div>
       )}
       
@@ -129,7 +123,7 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
             className="text-xs text-primary hover:underline"
             onClick={() => setShowDetails(!showDetails)}
           >
-            {showDetails ? "Hide 3D" : "Show 3D"}
+            {showDetails ? "Hide Avatar" : "Show Avatar"}
           </button>
         </div>
       </div>
@@ -141,7 +135,7 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
           exit={{ opacity: 0, height: 0 }}
           className="mt-3 pt-3 border-t border-gray-100"
         >
-          <TeamMember3D participant={participant} className="h-56" />
+          <ExpressionAvatar participant={participant} className="h-56" />
         </motion.div>
       )}
     </motion.div>
