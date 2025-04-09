@@ -11,24 +11,24 @@ interface TeamCardProps {
 const TeamCard = ({ team, index }: TeamCardProps) => {
   return (
     <motion.div 
-      className="group relative pt-16"
+      className="group relative pt-12"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.1 * index }}
     >
       {/* Enhanced Team Flag - Positioned at the TOP of the card */}
       <motion.div 
-        className="absolute -top-12 left-1/2 transform -translate-x-1/2 z-20"
+        className="absolute -top-8 left-1/2 transform -translate-x-1/2 z-20"
         initial={{ rotateZ: 0 }}
       >
         <div className="relative">
           {/* Flag pole - this should remain static */}
-          <div className="absolute top-0 left-0 w-1.5 h-16 bg-gray-400 shadow-md rounded-sm"></div>
+          <div className="absolute top-0 left-0 w-2 h-20 bg-gray-400 shadow-md rounded-sm"></div>
           
           {/* Flag fabric part - horizontal orientation */}
           {team.name === 'Supreme Spartans' ? (
             <motion.div
-              className="absolute top-0 left-1.5 h-12 w-24 origin-left bg-amber-400 rounded-sm shadow-lg overflow-hidden"
+              className="absolute top-0 left-2 h-16 w-36 origin-left bg-amber-400 rounded-sm shadow-lg overflow-hidden"
               initial={{ scaleX: 0.9, rotate: 0 }}
               animate={{ scaleX: [0.9, 1, 0.9], rotate: [0, 1, 0, -1, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -43,7 +43,7 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
             </motion.div>
           ) : (
             <motion.div 
-              className={`absolute top-0 left-1.5 h-12 w-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
+              className={`absolute top-0 left-2 h-16 w-32 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
               initial={{ scaleX: 0.9, rotate: 0 }}
               animate={{ scaleX: [0.9, 1, 0.9], rotate: [0, 1, 0, -1, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
