@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Participant, Team } from "@/types";
 import { cn } from "@/lib/utils";
@@ -53,17 +52,13 @@ const ParticipantCard = ({ participant, index, delay = 0, show3D = false }: Part
     }
   };
 
-  // Generate a deterministic but random avatar
+  // Generate a consistent avatar style for all participants
   const getAvatarUrl = () => {
-    // Use participant ID to get a consistent style for each participant
-    const styles = ['personas', 'bottts', 'avataaars', 'micah', 'open-peeps', 'pixel-art'];
-    const styleIndex = participant.id.charCodeAt(0) % styles.length;
-    const style = styles[styleIndex];
-    
-    // Generate a seed based on participant name for consistency
+    // Use participant name as seed for consistent generation
     const seed = encodeURIComponent(participant.name);
     
-    return `https://api.dicebear.com/6.x/${style}/svg?seed=${seed}`;
+    // Use avataaars style for all teams with young adult appearance
+    return `https://api.dicebear.com/6.x/avataaars/svg?seed=${seed}&mouth=smile,default&skinColor=b16926,d08b5b,edb98a,ffdbb4,fd9841&hair=short01,short02,short03,short04,short05&hairColor=0e0e0e,3eac2c,6a3288,85871a,b85253,d29e79,d2efa7,dbe159,ececec,f53c3c,f591a0,ffdeb5,ffeba4,a55728,b58143,c93305,77311d&style=circle&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf`;
   };
 
   // Determine avatar source with built-in generator

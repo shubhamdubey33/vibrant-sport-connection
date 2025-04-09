@@ -66,7 +66,9 @@ const ExpressionAvatar = ({ participant, onClick, className = "" }: ExpressionAv
   
   // Get a unique seed for consistent avatar generation
   const seed = encodeURIComponent(participant.name);
-  const avatarSrc = `https://api.dicebear.com/6.x/personas/svg?seed=${seed}`;
+  
+  // Use a consistent avatar style (avataaars) with age parameter
+  const avatarSrc = `https://api.dicebear.com/6.x/avataaars/svg?seed=${seed}&mouth=smile,default&skinColor=b16926,d08b5b,edb98a,ffdbb4,fd9841&hair=short01,short02,short03,short04,short05&hairColor=0e0e0e,3eac2c,6a3288,85871a,b85253,d29e79,d2efa7,dbe159,ececec,f53c3c,f591a0,ffdeb5,ffeba4,a55728,b58143,c93305,77311d&style=circle&backgroundColor=b6e3f4,c0aede,d1d4f9,ffd5dc,ffdfbf`;
   
   return (
     <motion.div 
