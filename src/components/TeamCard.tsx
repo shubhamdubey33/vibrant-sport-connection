@@ -26,67 +26,62 @@ const TeamCard = ({ team, index }: TeamCardProps) => {
           <div className="absolute top-0 left-0 w-1.5 h-36 bg-gray-400 shadow-md rounded-sm"></div>
           
           {/* Flag fabric part - only this should animate (positioned directly next to pole) */}
-          <motion.div 
-            className={`absolute top-0 left-1.5 w-16 h-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
-            initial={{ scaleY: 0.9, rotate: 0 }}
-            animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <div className="w-full h-full overflow-hidden relative">
-              {team.name === 'Knight Vipers' && (
-                <div className="absolute inset-0 flex flex-wrap opacity-60">
-                  {[...Array(20)].map((_, i) => (
-                    <div key={i} className="w-1/4 h-1/5 border border-orange-700/60"></div>
-                  ))}
-                </div>
-              )}
-              {team.name === 'Eagle Warriors' && (
-                <div className="absolute inset-0">
-                  {[...Array(8)].map((_, i) => (
-                    <div 
-                      key={i} 
-                      className="absolute bg-gray-300/40" 
-                      style={{ 
-                        width: `${Math.random() * 70 + 20}%`, 
-                        height: `${Math.random() * 10 + 3}px`,
-                        top: `${i * 12 + Math.random() * 10}%`,
-                        left: `${Math.random() * 30}%`,
-                        transform: `rotate(${Math.random() * 20 - 10}deg)`
-                      }}
-                    ></div>
-                  ))}
-                </div>
-              )}
-              {team.name === 'Royal Strikers' && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200/30 transform -translate-y-1/2"></div>
-                  <div className="absolute top-0 bottom-0 left-1/2 w-2 bg-gray-200/30 transform -translate-x-1/2"></div>
-                </div>
-              )}
-              {team.name === 'Supreme Spartans' && (
-                <div className="absolute inset-0 overflow-hidden">
-                  {[...Array(6)].map((_, i) => (
-                    <motion.div 
-                      key={i}
-                      className="absolute h-1.5 rounded-full"
-                      style={{ 
-                        width: `${Math.random() * 80 + 20}%`,
-                        background: `hsl(${Math.random() * 360}, 80%, 70%)`,
-                        top: `${i * 16 + Math.random() * 5}%`,
-                        left: `${Math.random() * 20}%`,
-                        opacity: 0.8
-                      }}
-                      animate={{ 
-                        left: [`${Math.random() * 20}%`, `${Math.random() * 10}%`],
-                        width: [`${Math.random() * 80 + 20}%`, `${Math.random() * 70 + 30}%`]
-                      }}
-                      transition={{ duration: 3, repeat: Infinity, repeatType: "reverse", delay: i * 0.2 }}
-                    ></motion.div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </motion.div>
+          {team.name === 'Supreme Spartans' ? (
+            <motion.div
+              className="absolute top-0 left-1.5 w-16 h-24 origin-left bg-amber-400 rounded-sm shadow-lg overflow-hidden"
+              initial={{ scaleY: 0.9, rotate: 0 }}
+              animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-full h-full relative">
+                <img 
+                  src="/lovable-uploads/0df5afb4-2fdb-42bd-a6bc-0fa9f14287aa.png" 
+                  alt="Supreme Spartans Flag" 
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div 
+              className={`absolute top-0 left-1.5 w-16 h-24 origin-left ${team.flagBackground} rounded-sm shadow-lg`}
+              initial={{ scaleY: 0.9, rotate: 0 }}
+              animate={{ scaleY: [0.9, 1, 0.9], rotate: [0, 2, 0, -2, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="w-full h-full overflow-hidden relative">
+                {team.name === 'Knight Vipers' && (
+                  <div className="absolute inset-0 flex flex-wrap opacity-60">
+                    {[...Array(20)].map((_, i) => (
+                      <div key={i} className="w-1/4 h-1/5 border border-orange-700/60"></div>
+                    ))}
+                  </div>
+                )}
+                {team.name === 'Eagle Warriors' && (
+                  <div className="absolute inset-0">
+                    {[...Array(8)].map((_, i) => (
+                      <div 
+                        key={i} 
+                        className="absolute bg-gray-300/40" 
+                        style={{ 
+                          width: `${Math.random() * 70 + 20}%`, 
+                          height: `${Math.random() * 10 + 3}px`,
+                          top: `${i * 12 + Math.random() * 10}%`,
+                          left: `${Math.random() * 30}%`,
+                          transform: `rotate(${Math.random() * 20 - 10}deg)`
+                        }}
+                      ></div>
+                    ))}
+                  </div>
+                )}
+                {team.name === 'Royal Strikers' && (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="absolute top-1/2 left-0 right-0 h-2 bg-gray-200/30 transform -translate-y-1/2"></div>
+                    <div className="absolute top-0 bottom-0 left-1/2 w-2 bg-gray-200/30 transform -translate-x-1/2"></div>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          )}
         </div>
       </motion.div>
       

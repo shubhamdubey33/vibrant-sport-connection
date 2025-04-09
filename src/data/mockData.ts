@@ -89,13 +89,13 @@ export const teams: TeamData[] = [
   },
   {
     name: 'Supreme Spartans',
-    color: 'from-red-600 to-red-900',
+    color: 'from-amber-500 to-amber-700', // Updated to match gold/yellow theme
     logo: '⚔️',
     backgroundColor: 'bg-team-design/10',
     textColor: 'text-team-design',
-    flagColor: 'text-red-600',
-    flagBackground: 'bg-gradient-to-r from-red-600 to-red-900',
-    flagSymbol: 'design-lines',
+    flagColor: 'text-amber-500', // Updated to match flag
+    flagBackground: 'bg-amber-400', // Updated to match flag background
+    flagSymbol: 'spartan-helm',
     participants: {
       cricket: 11,
       tugOfWar: 8,
